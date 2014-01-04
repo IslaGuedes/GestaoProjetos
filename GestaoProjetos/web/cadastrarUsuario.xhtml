@@ -19,27 +19,27 @@
                     
                        <p:growl id="growl" showDetail="true" sticky="true" />   
                     
-                       <p:panelGrid columns="2" >  
+                       <p:panelGrid columns="1" style="width: 40%"  >  
                  
-                         <h:outputLabel value="Nome*:" /> 
-                         <p:inputText value="" required="true" />  <br/>
+                         <h:outputLabel value="Nome*:"   /> 
+                         <p:inputText value="" required="true" size="50" />  
 
                          <h:outputLabel value="Email*:" /> 
-                         <p:inputText value="" required="true" /> <br/>
+                         <p:inputText value="" required="true" size="50"/> 
                          
                          <h:outputLabel value="Telefone*:" /> 
-                         <p:inputMask value="" mask="(99) 9999-9999" /> <br/>
+                         <p:inputMask value="" mask="(99) 9999-9999" size="50" /> 
                          
                          <h:outputLabel value="Cpf*:" /> 
-                         <p:inputMask value="" required="true" mask="999.999.999-99"/> <br/>
+                         <p:inputMask value="" required="true" mask="999.999.999-99" size="50"/> 
                          
                          <h:outputLabel value="Senha*:" />
                          <p:password required="true" id="senha1" value="" size="50" match="senha2" feedback="true"
-                           weakLabel="Facil" goodLabel="Médio" strongLabel="Difícil"/> <br/>
+                           weakLabel="Facil" goodLabel="Médio" strongLabel="Difícil"/> 
                          
                          <h:outputLabel value="Confirmar a Senha*:" />
                          <p:password id="senha2" label="Senha2" value="" 
-                                      required="true"/><br/><br/>
+                                      required="true" size="50"/><br/>
                             
                          (*)Campos de preenchimento obrigatórios.
           
@@ -47,7 +47,7 @@
                     
                     <p:panel id="Rodape">
                         
-                        <p:commandButton value="Cadastrar" action=""/> <br/>
+                        <p:commandButton value="Cadastrar" icon="ui-icon-pencil"/> <br/>
                         
                     </p:panel>
                  </h:form>

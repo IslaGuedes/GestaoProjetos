@@ -82,7 +82,9 @@ public class Aluno extends Usuario implements Serializable{
     private int agencia;      
     
     //Verificar RELACIONAMENTOS 
-    @ManyToOne 
+     
+
+    @ManyToOne
     private Curso curso;  
     
     @ManyToMany 

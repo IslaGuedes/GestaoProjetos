@@ -66,8 +66,7 @@ public class Projeto implements Serializable {
     private Date dataTermino;
     
     //Coordenação do projeto
-    @ManyToOne 
-    @Column(nullable=false)
+    @ManyToOne(optional=false)  
      private Orientador coordenador;
      
      @Column(nullable=false)

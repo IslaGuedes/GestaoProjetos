@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,30 +15,31 @@
 
     <h:body>
 
-         <div id="top">
-            <img src="resources/img/ifnmg.png"/>
+        <div id="top">
+            
+           <img src="resources/img/ifnmg.png"/>
              <div id="textop" align="center">
-                <h3>Sistema de Gestão de Projetos</h3>
-        '    </div>
-        </div>
-        
-        <h:form>
-            
-            <p:growl id="growl" showDetail="true" sticky="true" />   
-           
-            <div id="content" class="center_content">
-                <ui:insert name="content">Content</ui:insert>
-            </div>
-            
-        </h:form>
+                <h2>Sistema de Gestão de Projetos</h2>
+             </div>
 
-        <div id="bottom">          
-           <center>
-              Desenvolvido por Isla Guedes, analista de sistema
+        </div>
+
+      <div id="content" class="center_content">
+          
+          <ui:insert name="content"> 
+          
+          </ui:insert>
+            
+      </div>
+        
+        <div id="bottom">
+            <center>
+              Desenvolvido por Isla Guedes, analista de sistema <br/>
               &copy; 2014 Gestão Projetos - Todos os direitos reservados
            </center>         
         </div>
-        
+       
+
     </h:body>
 
 </html>

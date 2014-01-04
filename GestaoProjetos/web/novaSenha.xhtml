@@ -15,19 +15,28 @@
                  <p:panel header="Nova Senha" style="width: 40%"/>
                     <p:messages autoUpdate="true"/>
                       
-                    <form>
-                        
-                        <p:growl id="growl" showDetail="true" sticky="true" />
-                        
-                        <p:panelGrid>
-                            
-                         <h:outputLabel value="Email*:" /> 
-                         <p:inputText value="" required="true" /> <br/>
+                    <h:form>
+                    
+                       <p:growl id="growl" showDetail="true" sticky="true" />   
+                    
+                       <p:panelGrid columns="1" style="width: 40%"  >  
+                 
                          
-                         <p:commandButton value="Enviar nova senha" action=""/> <br/>
-                        </p:panelGrid>
+                         <h:outputLabel value="Email*:" /> 
+                         <p:inputText value="" required="true" size="50"/> 
+                         
+                            
+                         (*)Campo de preenchimento obrigatório.
+          
+                    </p:panelGrid>
+                    
+                    <p:panel id="Rodape">
                         
-                    </form>
+                        <p:commandButton value="Enviar Nova Senha para Email" icon="ui-icon-pencil" /> <br/>
+                        
+                    </p:panel>
+                 </h:form>
+                  
               </div>
             </ui:define>
 
