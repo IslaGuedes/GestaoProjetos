@@ -4,39 +4,33 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Apresentation;
 
-
 import br.edu.ifnmg.gestaoprojetos.DomainModel.*;
-import java.io.Serializable;
-import javax.ejb.EJB;
-import javax.faces.bean.SessionScoped;
-
 
 import javax.inject.Named;
-
-
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
  * @author Isla Guedes
  */
-@Named(value = "agenciaFinanciadoraController")
+@Named(value = "editalController")
 @SessionScoped
-public class AgenciaFinanciadoraController 
-    extends ControllerGenerico<AgenciaFinanciadora> implements Serializable {
- 
-    
+public class EditalController 
+    extends ControllerGenerico<Edital> implements Serializable {
+
     /**
-     * Creates a new instance of AgenciaFinanciadoraController
+     * Creates a new instance of EditalController
      */
+    public EditalController() {        
+        filtro = new Edital();
+        entidade = new Edital();        
+    }    
     
-    public AgenciaFinanciadoraController() {
-        filtro = new AgenciaFinanciadora();
-        entidade = new AgenciaFinanciadora();       
-    }
-
     @EJB
-    AgenciaFinanciadoraRepositorio dao;
-
+    EditalRepositorio dao;
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
@@ -48,25 +42,25 @@ public class AgenciaFinanciadoraController
 
     @Override
     public String novo(){
-        entidade = new AgenciaFinanciadora();
-        return "admin/editarAgenciaFinanciadora.xhtml";
+        entidade = new Edital();
+        return "admin/editarEdital.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarAgenciaFinanciadora.xhtml";
+        return "admin/editarEdital.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemAgenciaFinanciadora.xhtml";
+        return "admin/listagemEdital.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemAgenciaFinanciadora.xhtml";
+            return "admin/listagemEdital.xhtml";
         } else {
             return "";
         }
@@ -77,13 +71,15 @@ public class AgenciaFinanciadoraController
         listagem = dao.Buscar(filtro);
     }
 
-    public AgenciaFinanciadoraRepositorio getDao() {
+    public EditalRepositorio getDao() {
         return dao;
     }
 
-    public void setDao(AgenciaFinanciadoraRepositorio dao) {
+    public void setDao(EditalRepositorio dao) {
         this.dao = dao;
     }
-  
-  
+    
+    
+    
+
 }

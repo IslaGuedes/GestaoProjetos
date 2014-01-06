@@ -33,11 +33,11 @@ public class EditalDAO
             if(obj.getId() != null){
                 filtros += "a.id = " + obj.getId();
             }
-          // if(obj.getNumero() != null){  
-            //    if(filtros.length() > 0) TIPO INT IMCOMPATIVEL CM NULL
-              //      filtros += " and ";
-                //filtros += "a.nome like '%" + obj.getNumero() + "%'"; 
-         //   }
+            if(obj.getNumero() > 0){  
+               if(filtros.length() > 0) 
+                    filtros += " and ";
+                filtros += "a.numero like '%" + obj.getNumero() + "%'"; 
+           }
             if(obj.getAgenciaFinanciadora() != null){
                 if(filtros.length() > 0)
                     filtros += " and ";

@@ -26,7 +26,7 @@ public class Edital implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(nullable=false, unique=true)
+    @Column(unique=true)
     private int numero;
     
     @ManyToOne
@@ -82,11 +82,7 @@ public class Edital implements Serializable {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
-   
     
-    
-   
 
     @Override
     public int hashCode() {

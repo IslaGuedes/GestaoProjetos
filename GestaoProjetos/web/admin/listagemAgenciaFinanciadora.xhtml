@@ -11,10 +11,12 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
           <ui:define name="content">
-                <p:panelGrid columns="2" >
+              
+            <center>
+              <p:panelGrid columns="2" >
                     
                    <f:facet name="header">  
-                    Filtros  
+                    Filtros - Agência Financiadora  
                    </f:facet>  
 
                    <h:outputLabel value="Nome:" />
@@ -29,6 +31,7 @@
                    </f:facet>
                    
                  </p:panelGrid>
+            </center>
               
               
           <p:dataTable value="${agenciaFinanciadoraController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
@@ -39,7 +42,6 @@
             <p:column sortBy="sigla" headerText="Sigla">
                 ${item.sigla}
             </p:column>
-
            
             <p:column headerText="Editar">
                 <p:commandButton value="Editar" ajax="false" action="${agenciaFinanciadoraController.abrir}">
@@ -50,10 +52,10 @@
           </p:dataTable>
 
 
-                
+               
       </ui:define>
 
-        </ui:composition>
+    </ui:composition>
 
-    </body>
+  </body>
 </html>
