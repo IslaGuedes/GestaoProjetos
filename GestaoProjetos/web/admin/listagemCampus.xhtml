@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateAdmin.xhtml">
+
+            <ui:define name="content">
+                <center>
+              <p:panelGrid columns="2" >
+                    
+                   <f:facet name="header">  
+                    Filtros - Campus  
+                   </f:facet>  
+
+                   <h:outputLabel value="Nome:" />
+                   <p:inputText value="${campusController.filtro.nome}"/>  
+
+                   <h:outputLabel value="Endereço:" />
+                   <p:selectOneMenu value="${campusController.filtro.endereco}" label="Endereço" required="true" >
+                       
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                       <f:selectItem itemLabel="" itemValue=""/>
+                       
+                   </p:selectOneMenu>
+                   
+                  
+                  
+                   <f:facet name="footer">  
+                       <p:commandButton ajax="false" value="Filtrar" icon="ui-icon-check" action="${campusController.filtrar()}" style="margin:0"/>  
+                       <p:commandButton ajax="false" value="Novo Campus" action="${campusController.novo()}" />
+                   </f:facet>
+                   
+                 </p:panelGrid>
+            </center>
+              
+              
+           <p:dataTable value="${campusController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
+            <p:column sortBy="nome" headerText="Nome">
+                ${item.nome}
+            </p:column>
+
+            <p:column sortBy="endereco" headerText="Endereço">
+                ${item.endereco}
+            </p:column>
+           
+            <p:column headerText="Editar">
+                <p:commandButton value="Editar" ajax="false" action="${campusController.abrir}">
+                    <f:setPropertyActionListener target="${campusController.entidade}" value="${item}" />
+                </p:commandButton>
+            </p:column>
+              
+          </p:dataTable>
+        </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

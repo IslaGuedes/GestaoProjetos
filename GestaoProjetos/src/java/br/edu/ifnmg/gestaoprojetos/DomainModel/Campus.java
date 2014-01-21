@@ -21,7 +21,7 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Campus implements Serializable {
-    private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -60,9 +60,6 @@ public class Campus implements Serializable {
     }
     
     
-   
-    
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -88,6 +85,5 @@ public class Campus implements Serializable {
         return "Campus{" + "id=" + id + '}';
     }
 
-    
     
 }

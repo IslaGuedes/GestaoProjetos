@@ -4,40 +4,33 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Apresentation;
 
-
 import br.edu.ifnmg.gestaoprojetos.DomainModel.*;
-import java.io.Serializable;
-import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
-
-
 
 import javax.inject.Named;
-
-
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
  * @author Isla Guedes
  */
-@Named(value = "agenciaFinanciadoraController")
+@Named(value = "campusController")
 @SessionScoped
-public class AgenciaFinanciadoraController 
-    extends ControllerGenerico<AgenciaFinanciadora> implements Serializable {
- 
-    
+public class CampusController
+    extends ControllerGenerico<Campus> implements Serializable {
+
     /**
-     * Creates a new instance of AgenciaFinanciadoraController
+     * Creates a new instance of CampusController
      */
-    
-    public AgenciaFinanciadoraController() {
-        filtro = new AgenciaFinanciadora();
-        entidade = new AgenciaFinanciadora();       
+    public CampusController() {        
+        filtro = new Campus();
+        entidade = new Campus();        
     }
-
+    
     @EJB
-    AgenciaFinanciadoraRepositorio dao;
-
+    CampusRepositorio dao;
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
@@ -49,25 +42,25 @@ public class AgenciaFinanciadoraController
 
     @Override
     public String novo(){
-        entidade = new AgenciaFinanciadora();
-        return "admin/editarAgenciaFinanciadora.xhtml";
+        entidade = new Campus();
+        return "admin/editarCampus.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarAgenciaFinanciadora.xhtml";
+        return "admin/editarCampus.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemAgenciaFinanciadora.xhtml";
+        return "admin/listagemCampus.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemAgenciaFinanciadora.xhtml";
+            return "admin/listagemCampus.xhtml";
         } else {
             return "";
         }
@@ -78,13 +71,14 @@ public class AgenciaFinanciadoraController
         listagem = dao.Buscar(filtro);
     }
 
-    public AgenciaFinanciadoraRepositorio getDao() {
+    public CampusRepositorio getDao() {
         return dao;
     }
 
-    public void setDao(AgenciaFinanciadoraRepositorio dao) {
+    public void setDao(CampusRepositorio dao) {
         this.dao = dao;
     }
-  
-  
+    
+    
+
 }

@@ -42,14 +42,18 @@ public class AlunoDAO
             }
             
            
-            
-            //verificar se a busca do nome é em USUARIODAO
-            if(obj.getNome() != null){
+        if(obj.getNome() != null){
                 if(filtros.length() > 0)
                     filtros += " and ";
                 filtros += "a.nome like '%" + obj.getNome() + "%'"; 
             }
-            
+        
+         if(obj.getCurso() != null){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "a.curso like '%" + obj.getCurso() + "%'"; 
+            }
+        
         }
         
         if(filtros.length() > 0){

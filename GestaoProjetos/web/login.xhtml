@@ -11,10 +11,12 @@
         <ui:composition template="./TemplateExterno.xhtml">
 
           <ui:define name="content">
+             <h:form>
               <div align="center">
+               
                  <p:panel header="Login" style="width: 40%"/>
                  <p:messages autoUpdate="true"/>
-            <h:form>
+            
                 <p:growl id="growl" showDetail="true" sticky="true" />   
 
                 <p:panelGrid columns="1" style="width: 41%" >  
@@ -30,17 +32,22 @@
                 
                 <p:panel id="Rodape" style="width: 40%" >
                 
-                    <p:commandButton value="Entrar" /> <br/> <br/>
-                    <p:commandLink value="Esqueci a Senha" ajax="false"/> <br/>
-                    <p:commandLink value="Cadastrar Usuário"  ajax="false"/>
+                    <p:commandButton value="Entrar" /> <br/>
+                    
+                </p:panel>  
                 
-                </p:panel>
+                <div align="left" style="width: 40%">
+                       <p:commandLink value="Cadastrar Usuário" ajax="false"/>
+                </div>
                 
-                               
-             </h:form>
+                <div align="right" style="width: 40%">
+                       <p:commandLink value="Esqueci a Senha" ajax="false"/> 
+                </div>              
+                  
+            </div>
                  
-            </div>              
-          </ui:define>
+          </h:form>
+        </ui:define>
 
         </ui:composition>
 
