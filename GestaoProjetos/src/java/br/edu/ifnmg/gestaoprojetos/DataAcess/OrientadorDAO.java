@@ -34,21 +34,25 @@ public class OrientadorDAO
                 filtros += "a.id = " + obj.getId();
             }
             
-            //ver se a busca por nome é em USUARIODAO
+        if(obj.getMatriculaSiape() > 0){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "a.matriculaSiape = " + obj.getMatriculaSiape() ; 
+            }
             
-            //FAZER A BUSCA POR MATRICULA SIAPE
             
-            if(obj.getNome() != null){
+         if(obj.getNome() != null){
                 if(filtros.length() > 0)
                     filtros += " and ";
                 filtros += "a.nome like '%" + obj.getNome() + "%'"; 
             }
-            if(obj.getAreaConhecimento() != null){
+            
+         if(obj.getAreaConhecimento() != null){
                 if(filtros.length() > 0)
                     filtros += " and ";
                 filtros += "a.areaconhecimento like '%" + obj.getAreaConhecimento() + "%'"; 
             }
-        }
+          }
         
         if(filtros.length() > 0){
             sql += " where " + filtros;

@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateAdmin.xhtml">
+
+           <ui:define name="content">
+            <p:tabView id="tabView">
+              
+            
+             <p:tab title="Dados do Orientador">
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel value="Nome Completo*:" />
+                    <p:inputText value="${orientadorController.entidade.nome}" required="true"/>                      
+                        
+                    <h:outputLabel value="Matrícula SIAPE*:" />
+                    <p:inputText value="${orientadorController.entidade.matriculaSiape}" required="true"/>  
+                    
+                    <h:outputLabel value="Área de Conhecimento/Curso*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.areaConhecimento}" label="Curso" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel value="Campus onde trabalha*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.campus}" label="Campus" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel value="Local de Permanência*:" />
+                    <p:inputText value="${orientadorController.entidade.localPermanencia}" required="true"/>   
+                    
+                    <h:outputLabel value="Telefone/Ramal*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.telefone}" label="Telefone" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                    </p:selectOneMenu>
+                    
+                   <h:outputLabel value="Data de Nascimento*:" />
+                   <p:calendar value="${orientadorController.entidade.dataNascimento}" required="true"
+                               label="Data de Nascimento" pattern="dd/MM/yyyy" locale="pt_BR"/>                   
+                    
+                   <h:outputLabel value="Naturalidade-UF*:" />
+                   <p:inputText value="${orientadorController.entidade.naturalidadeUF}" required="true"/> 
+                    
+                    <h:outputLabel value="Nacionalidade*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.nacionalidade}" label="Nacionalidade" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel value="Endereço*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.endereco}" label="Endereço" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel value="Estado*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.estado}" label="Estado" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel value="Telefone Residencial*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.telefone}" label="Telefone" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                   
+                    
+                    <h:outputLabel value="Email*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.email}" label="Email" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                   
+                   
+               
+             </h:panelGrid>
+          </p:tab>
+              
+            <p:tab title="Documentos">
+                <h:panelGrid columns="2">
+                   <h:outputLabel value="Carteira de identidade*:" />
+                   <p:inputText value="${orientadorController.entidade.rg}" required="true"/>   
+                    
+                   <h:outputLabel value="Órgão Expeditor*:" />
+                   <p:inputText value="${orientadorController.entidade.orgaoExpeditor}" required="true"/>                      
+               
+                   <h:outputLabel value="Data de Expedição*:" />
+                   <p:calendar value="${orientadorController.entidade.dataExpedicao}" required="true"
+                               label="Data de Expedição" pattern="dd/MM/yyyy" locale="pt_BR"/> 
+                   
+                   
+                   <h:outputLabel value="CPF*:" />
+                   <p:inputMask value="${orientadorController.entidade.cpf}" label="CPF" 
+                                style="200px" required="true" mask="999.999.999-99"/>
+                   
+                </h:panelGrid> 
+                
+            </p:tab>
+              
+          
+            <p:tab title="Dados de Formação">
+                <h:panelGrid columns="2">
+                  <h:outputLabel value="Formação Universitária*:" /> 
+                  <p:inputText value="${orientadorController.entidade.formacaoUniversitaria}" required="true"/> 
+                  
+                  <h:outputLabel value="Título Acadêmico(Maior)*:" />
+                  <p:inputText value="${orientadorController.entidade.tituloAcademico}" required="true"/> 
+                
+                </h:panelGrid> 
+                
+            </p:tab>
+                
+           
+            <p:tab title="Dados de Solicitação">
+                <h:panelGrid columns="2">
+                   <h:outputLabel value="Número de Cadastro do Projeto / Título*:" />           
+                    <p:selectOneMenu value="${orientadorController.entidade.projetos}" label="Projeto" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                   
+                   <h:outputLabel value="Nome do Estudante 1*:" />
+                    <p:selectOneMenu value="${orientadorController.entidade.alunos}" label="Estudante 1" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                   
+                   <h:outputLabel value="Nome do Estudante 2*:" />
+                    <p:selectOneMenu value="${orientadorController.entidade.alunos}" label="Estudante 2" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                   
+                  
+                   
+                </h:panelGrid>  
+                
+                 
+                   *Obs:Caso o projeto não possua cadastro, preencher o Formulário de Cadastro de Projeto (Formulário 3)
+                   e entregá-lo em três vias à Diretoria de Pesquisa do Campus ou órgão equivalente.
+                  
+                   
+            </p:tab> 
+                
+            
+             
+            
+           
+        </p:tabView>                     
+        
+        (*) Campos de Preenchimento Obrigatório
+        
+        <p:panel id="Rodape">
+            <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
+            <p:commandButton rendered="#{editalController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
+            <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${editalController.cancelar()}" />
+        </p:panel>       
+        <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"
+                         severity="alert" widgetVar="msgSalvar">
+            <p:commandButton ajax="false" value="SIM" action="${editalController.salvar}" />
+            <p:commandButton ajax="false" value="NÃO" onclick="msgSalvar.hide()" />                    
+        </p:confirmDialog>
+
+        <p:confirmDialog id="confirmaRemover" message="Deseja realmente Remover os Dados?" header="Confirmação"
+                         severity="alert" widgetVar="msgRemover">
+            <p:commandButton ajax="false" value="SIM" action="${editalController.excluir}" />
+            <p:commandButton ajax="false" value="NÃO" onclick="msgRemover.hide()" />
+
+        </p:confirmDialog>
+
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>

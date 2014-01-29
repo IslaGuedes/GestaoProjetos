@@ -57,7 +57,7 @@ public class Aluno extends Usuario implements Serializable{
     private String orgaoExpedidorPai;
     
     @Column(length=14)
-    private int cpfPai;
+    private String cpfPai;
     
     @Column(nullable=false)
     private String nomeMae;
@@ -69,7 +69,7 @@ public class Aluno extends Usuario implements Serializable{
     private String orgaoExpedidorMae;
     
     @Column(length=14)
-    private int cpfMae;
+    private String cpfMae;
    
     //Dados da Conta
     @Column(nullable=false)
@@ -174,15 +174,6 @@ public class Aluno extends Usuario implements Serializable{
     public void setOrgaoExpedidorPai(String orgaoExpedidorPai) {
         this.orgaoExpedidorPai = orgaoExpedidorPai;
     }
-
-    public int getCpfPai() {
-        return cpfPai;
-    }
-
-    public void setCpfPai(int cpfPai) {
-        this.cpfPai = cpfPai;
-    }
-
     public String getNomeMae() {
         return nomeMae;
     }
@@ -207,11 +198,19 @@ public class Aluno extends Usuario implements Serializable{
         this.orgaoExpedidorMae = orgaoExpedidorMae;
     }
 
-    public int getCpfMae() {
+    public String getCpfPai() {
+        return cpfPai;
+    }
+
+    public void setCpfPai(String cpfPai) {
+        this.cpfPai = cpfPai;
+    }
+
+    public String getCpfMae() {
         return cpfMae;
     }
 
-    public void setCpfMae(int cpfMae) {
+    public void setCpfMae(String cpfMae) {
         this.cpfMae = cpfMae;
     }
 

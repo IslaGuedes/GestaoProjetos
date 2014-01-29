@@ -34,8 +34,8 @@ public class Usuario{
     @Column(nullable=false)  //vai ser unique??
     private String rg;
     
-    @Column(length=14) //vai ser unique??
-    private int cpf;   //CPF LOGIN
+    @Column(length=14) //vai ser unique?? e string
+    private String cpf;   //CPF LOGIN
     
     @Column (nullable=false) 
     private String senha;
@@ -106,14 +106,14 @@ public class Usuario{
         this.rg = rg;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
+   
     public String getSenha() {
         return senha;
     }

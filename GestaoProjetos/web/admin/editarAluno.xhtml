@@ -11,9 +11,10 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
          <ui:define name="content">
-          <p:tabView id="tabView"> 
+          <p:tabView id="tabView">
+              
             
-            <p:tab title="Dados do(A) Aluno(A)">
+            <p:tab title="Dados do(a) Aluno(a)">
                 <h:panelGrid columns="2">
                     
                     <h:outputLabel value="Nome Completo*:" />
@@ -74,23 +75,109 @@
                 </h:panelGrid>
             </p:tab>
               
-            <p:tab title="Documentos do Aluno(A)">
-                
+            <p:tab title="Documentos">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Carteira de identidade*:" />
+                    <p:inputText value="${alunoController.entidade.rg}" required="true"/>   
+                    
+                    <h:outputLabel value="Órgão Expeditor*:" />
+                    <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="true"/>                      
+               
+                   <h:outputLabel value="Data de Expedição*:" />
+                   <p:calendar value="${alunoController.entidade.dataExpedicao}" required="true"
+                               label="Data de Expedição" pattern="dd/MM/yyyy" locale="pt_BR"/> 
+                   
+                   <h:outputLabel value="Título Eleitoral*:" />
+                   <p:inputText value="${alunoController.entidade.tituloEleitoral}" required="true"/>  
+                    
+                   <h:outputLabel value="Sessão Eleitoral*:" />
+                   <p:inputText value="${alunoController.entidade.secaoEleitoral}" required="true"/>  
+                   
+                   <h:outputLabel value="Zona Eleitoral*:" />
+                   <p:inputText value="${alunoController.entidade.zonaEleitoral}" required="true"/> 
+                   
+                   <h:outputLabel value="CPF*:" />
+                   <p:inputMask value="${alunoController.entidade.cpf}" label="CPF" 
+                                style="200px" required="true" mask="999.999.999-99"/>
+                   
+                   <h:outputLabel value="Situação Militar*:" />
+                   <p:inputText value="${alunoController.entidade.situacaoMilitar}" required="true"/> 
+                   
+                   <h:outputLabel value="Certidão Militar*:" />
+                   <p:inputText value="${alunoController.entidade.certidaoMilitar}" required="true"/> 
+                   
+                </h:panelGrid> 
                 
             </p:tab>
               
             <p:tab title="Dados da Conta Bancária">
-                
+               <h:panelGrid columns="2">
+                  <h:outputLabel value="Banco*:" />
+                  <p:inputText value="${alunoController.entidade.banco}" required="true"/> 
+                  
+                  <h:outputLabel value="Número da Conta Bancária*:" />
+                  <p:inputText value="${alunoController.entidade.contaBancaria}" required="true"/> 
+                  
+                  <h:outputLabel value="Número da Agência*:" />
+                  <p:inputText value="${alunoController.entidade.agencia}" required="true"/> 
+                  
+               </h:panelGrid>  
                 
             </p:tab>
              
             <p:tab title="Outras informações">
-                               
+                <h:panelGrid columns="2">
+                  <h:outputLabel value="Trabalha?*:" />  
+                  <p:selectOneRadio value="${alunoController.entidade.trabalhoStatus}" required="true" label="trabalho">
+                      <f:selectItem itemLabel="Sim" itemValue="S"/>
+                      <f:selectItem itemLabel="Não" itemValue="N"/>
+                  </p:selectOneRadio>
+                  
+                  <h:outputLabel value="Local do Trabalho*:" />           
+                    <p:selectOneMenu value="${alunoController.entidade.listaLocalTrabalho}" label="Local Trabalho" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                    </p:selectOneMenu>
+                  
+                   <h:outputLabel value="Telefone*:" />           
+                    <p:selectOneMenu value="${alunoController.entidade.telefone}" label="Telefone" required="true" >
+                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        
+                    </p:selectOneMenu>
+                   
+                </h:panelGrid>                
                 
             </p:tab>  
               
             <p:tab title="Dados dos Pais">
-                
+                <h:panelGrid columns="2">
+                  <h:outputLabel value="Nome do pai ou responsável*:" /> 
+                  <p:inputText value="${alunoController.entidade.nomePai}" required="true"/> 
+                  
+                  <h:outputLabel value="Carteira de identidade*:" />
+                  <p:inputText value="${alunoController.entidade.rgPai}" required="true"/> 
+                  
+                  <h:outputLabel value="Órgão Expeditor*:" />
+                  <p:inputText value="${alunoController.entidade.orgaoExpedidorPai}" required="true"/>  
+                  
+                  <h:outputLabel value="CPF*:" />
+                  <p:inputMask value="${alunoController.entidade.cpfPai}" label="CPF" 
+                                style="200px" required="true" mask="999.999.999-99"/>
+                   
+                  
+                  <h:outputLabel value="Nome da mãe*:" /> 
+                  <p:inputText value="${alunoController.entidade.nomeMae}" required="true"/> 
+                  
+                  <h:outputLabel value="Carteira de identidade*:" />
+                  <p:inputText value="${alunoController.entidade.rgMae}" required="true"/> 
+                  
+                  <h:outputLabel value="Órgão Expeditor*:" />
+                  <p:inputText value="${alunoController.entidade.orgaoExpedidorMae}" required="true"/>
+                  
+                   <h:outputLabel value="CPF*:" />
+                  <p:inputMask value="${alunoController.entidade.cpfMae}" label="CPF" 
+                                style="200px" required="true" mask="999.999.999-99"/>
+                  
+                </h:panelGrid> 
                 
             </p:tab>
             
