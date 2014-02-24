@@ -13,7 +13,7 @@ import javax.persistence.Query;
  *
  * @author Isla Guedes
  */
-@Stateless(name= "AgenciaFinanciadoraRepositorio")
+@Stateless
 public class AgenciaFinanciadoraDAO
 
     extends DAOGenerico<AgenciaFinanciadora>

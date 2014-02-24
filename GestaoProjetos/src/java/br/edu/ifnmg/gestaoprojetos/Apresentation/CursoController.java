@@ -43,24 +43,24 @@ public class CursoController
     @Override
     public String novo(){
         entidade = new Curso();
-        return "admin/editarCurso.xhtml";
+        return "editarCurso.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarCurso.xhtml";
+        return "editarCurso.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemCurso.xhtml";
+        return "listagemCurso.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemCurso.xhtml";
+            return "listagemCurso.xhtml";
         } else {
             return "";
         }

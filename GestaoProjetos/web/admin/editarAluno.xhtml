@@ -25,7 +25,7 @@
                     
                     <h:outputLabel value="Curso*:" />           
                     <p:selectOneMenu value="${alunoController.entidade.curso}" label="Curso" required="true" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                       <f:selectItem itemLabel="Selecione..." itemValue="${alunoController}" />
                         
                     </p:selectOneMenu>
                     
@@ -48,32 +48,49 @@
                         
                     </p:selectOneMenu>
                     
-                    <h:outputLabel value="Endereço*:" />           
-                    <p:selectOneMenu value="${alunoController.entidade.endereco}" label="Endereço" required="true" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                        
-                    </p:selectOneMenu>
                     
-                    <h:outputLabel value="Estado*:" />           
-                    <p:selectOneMenu value="${alunoController.entidade.estado}" label="Estado" required="true" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                        
-                    </p:selectOneMenu>
+                    <h:outputLabel value="Telefone*:" />    
+                    <p:inputText value="${alunoController.entidade.naturalidadeUF}" required="true"/>
                     
-                    <h:outputLabel value="Telefone*:" />           
-                    <p:selectOneMenu value="${alunoController.entidade.telefone}" label="Telefone" required="true" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                        
-                    </p:selectOneMenu>
                     
                     <h:outputLabel value="Email*:" />           
-                    <p:selectOneMenu value="${alunoController.entidade.email}" label="Email" required="true" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                        
-                    </p:selectOneMenu>
+                    <p:inputText value="${alunoController.entidade.naturalidadeUF}" required="true"/>
                    
                 </h:panelGrid>
             </p:tab>
+              
+              
+           <p:tab title="Endereço">
+                <h:panelGrid columns="2">                    
+                    
+                    <h:outputLabel value="Rua/Av/Estrada*:" />
+                    <p:inputText value="${alunoController.entidade.rg}" required="true"/>   
+                    
+                    
+                    <h:outputLabel value="Número*:" />
+                    <p:inputText value="${alunoController.entidade.rg}" required="true"/>   
+                    
+                    <h:outputLabel value="Complemento:" />
+                    <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="true"/>                      
+               
+                   <h:outputLabel value="Bairro*:" />
+                   <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="true"/> 
+                   
+                   <h:outputLabel value="Cidade*:" />
+                   <p:inputText value="${alunoController.entidade.tituloEleitoral}" required="true"/>  
+                    
+                   <h:outputLabel value="Cep*:" />
+                   <p:inputText value="${alunoController.entidade.zonaEleitoral}" required="true"/> 
+                   
+                   
+                  
+                </h:panelGrid> 
+                
+            </p:tab>
+              
+             
+            
+              
               
             <p:tab title="Documentos">
                 <h:panelGrid columns="2">
@@ -98,7 +115,7 @@
                    
                    <h:outputLabel value="CPF*:" />
                    <p:inputMask value="${alunoController.entidade.cpf}" label="CPF" 
-                                style="200px" required="true" mask="999.999.999-99"/>
+                                 required="true" mask="999.999.999-99"/>
                    
                    <h:outputLabel value="Situação Militar*:" />
                    <p:inputText value="${alunoController.entidade.situacaoMilitar}" required="true"/> 
@@ -109,6 +126,8 @@
                 </h:panelGrid> 
                 
             </p:tab>
+           
+              
               
             <p:tab title="Dados da Conta Bancária">
                <h:panelGrid columns="2">
@@ -161,7 +180,7 @@
                   
                   <h:outputLabel value="CPF*:" />
                   <p:inputMask value="${alunoController.entidade.cpfPai}" label="CPF" 
-                                style="200px" required="true" mask="999.999.999-99"/>
+                                 required="true" mask="999.999.999-99"/>
                    
                   
                   <h:outputLabel value="Nome da mãe*:" /> 
@@ -175,7 +194,7 @@
                   
                    <h:outputLabel value="CPF*:" />
                   <p:inputMask value="${alunoController.entidade.cpfMae}" label="CPF" 
-                                style="200px" required="true" mask="999.999.999-99"/>
+                                 required="true" mask="999.999.999-99"/>
                   
                 </h:panelGrid> 
                 
@@ -190,18 +209,18 @@
         
         <p:panel id="Rodape">
             <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
-            <p:commandButton rendered="#{editalController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
-            <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${editalController.cancelar()}" />
+            <p:commandButton rendered="#{alunoController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
+            <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${alunoController.cancelar()}" />
         </p:panel>       
         <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"
                          severity="alert" widgetVar="msgSalvar">
-            <p:commandButton ajax="false" value="SIM" action="${editalController.salvar}" />
+            <p:commandButton ajax="false" value="SIM" action="${alunoController.salvar}" />
             <p:commandButton ajax="false" value="NÃO" onclick="msgSalvar.hide()" />                    
         </p:confirmDialog>
 
         <p:confirmDialog id="confirmaRemover" message="Deseja realmente Remover os Dados?" header="Confirmação"
                          severity="alert" widgetVar="msgRemover">
-            <p:commandButton ajax="false" value="SIM" action="${editalController.excluir}" />
+            <p:commandButton ajax="false" value="SIM" action="${alunoController.excluir}" />
             <p:commandButton ajax="false" value="NÃO" onclick="msgRemover.hide()" />
 
         </p:confirmDialog>

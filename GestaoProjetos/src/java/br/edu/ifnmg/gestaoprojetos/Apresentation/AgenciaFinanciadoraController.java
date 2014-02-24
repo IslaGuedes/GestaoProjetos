@@ -50,24 +50,24 @@ public class AgenciaFinanciadoraController
     @Override
     public String novo(){
         entidade = new AgenciaFinanciadora();
-        return "admin/editarAgenciaFinanciadora.xhtml";
+        return "editarAgenciaFinanciadora.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarAgenciaFinanciadora.xhtml";
+        return "editarAgenciaFinanciadora.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemAgenciaFinanciadora.xhtml";
+        return "listagemAgenciaFinanciadora.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemAgenciaFinanciadora.xhtml";
+            return "listagemAgenciaFinanciadora.xhtml";
         } else {
             return "";
         }

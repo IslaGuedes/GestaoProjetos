@@ -4,13 +4,14 @@
  */
 package br.edu.ifnmg.gestaoprojetos.DomainModel;
 
+import javax.ejb.Local;
 import javax.ejb.Remote;
 
 /**
  *
  * @author Isla Guedes
  */
-@Remote
+@Local
 public interface UsuarioRepositorio 
     
     extends Repositorio<Usuario>

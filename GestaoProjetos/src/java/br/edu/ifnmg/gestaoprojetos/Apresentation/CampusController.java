@@ -43,24 +43,24 @@ public class CampusController
     @Override
     public String novo(){
         entidade = new Campus();
-        return "admin/editarCampus.xhtml";
+        return "editarCampus.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarCampus.xhtml";
+        return "editarCampus.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemCampus.xhtml";
+        return "listagemCampus.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemCampus.xhtml";
+            return "listagemCampus.xhtml";
         } else {
             return "";
         }

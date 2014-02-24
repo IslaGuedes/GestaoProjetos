@@ -49,9 +49,6 @@ public class AreaConhecimentoDAO
         
         return consulta.getResultList();
     }
-    
-    
-    
-    
+   
     
 }

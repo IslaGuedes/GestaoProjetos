@@ -43,24 +43,24 @@ public class AreaConhecimentoController
     @Override
     public String novo(){
         entidade = new AreaConhecimento();
-        return "admin/editarAreaConhecimento.xhtml";
+        return "editarAreaConhecimento.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarAreaConhecimento.xhtml";
+        return "editarAreaConhecimento.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemAreaConhecimento.xhtml";
+        return "listagemAreaConhecimento.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemAreaConhecimento.xhtml";
+            return "listagemAreaConhecimento.xhtml";
         } else {
             return "";
         }

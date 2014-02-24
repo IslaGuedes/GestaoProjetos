@@ -44,24 +44,24 @@ public class ProjetoController
     @Override
     public String novo(){
         entidade = new Projeto();
-        return "admin/editarProjeto.xhtml";
+        return "editarProjeto.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarProjeto.xhtml";
+        return "editarProjeto.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemProjeto.xhtml";
+        return "listagemProjeto.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemProjeto.xhtml";
+            return "listagemProjeto.xhtml";
         } else {
             return "";
         }

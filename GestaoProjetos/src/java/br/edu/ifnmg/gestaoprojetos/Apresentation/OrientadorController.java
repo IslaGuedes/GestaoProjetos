@@ -43,24 +43,24 @@ public class OrientadorController
     @Override
     public String novo(){
         entidade = new Orientador();
-        return "admin/editarOrientador.xhtml";
+        return "editarOrientador.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarOrientador.xhtml";
+        return "editarOrientador.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemOrientador.xhtml";
+        return "listagemOrientador.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemOrientador.xhtml";
+            return "listagemOrientador.xhtml";
         } else {
             return "";
         }

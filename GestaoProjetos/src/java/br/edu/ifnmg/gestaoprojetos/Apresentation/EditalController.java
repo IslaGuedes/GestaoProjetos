@@ -43,24 +43,24 @@ public class EditalController
     @Override
     public String novo(){
         entidade = new Edital();
-        return "admin/editarEdital.xhtml";
+        return "editarEdital.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarEdital.xhtml";
+        return "editarEdital.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemEdital.xhtml";
+        return "listagemEdital.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemEdital.xhtml";
+            return "listagemEdital.xhtml";
         } else {
             return "";
         }

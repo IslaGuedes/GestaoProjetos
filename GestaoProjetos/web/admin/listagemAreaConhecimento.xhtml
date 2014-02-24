@@ -32,7 +32,7 @@
             </center>
               
               
-                <p:dataTable value="${areaConhecimentoController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
+          <p:dataTable value="${areaConhecimentoController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
             <p:column sortBy="nome" headerText="Nome">
                 ${item.nome}
             </p:column>
@@ -40,7 +40,7 @@
             
            
             <p:column headerText="Editar">
-                <p:commandButton value="Editar" ajax="false" action="${areaConhecimentoController.abrir()}">
+                <p:commandButton value="Editar" ajax="false" action="${areaConhecimentoController.abrir}">
                     <f:setPropertyActionListener target="${areaConhecimentoController.entidade}" value="${item}" />
                 </p:commandButton>
             </p:column>

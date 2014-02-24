@@ -4,13 +4,13 @@
  */
 package br.edu.ifnmg.gestaoprojetos.DomainModel;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
 /**
  *
  * @author Isla Guedes
  */
-@Remote
+@Local
 public interface AgenciaFinanciadoraRepositorio 
     
     extends Repositorio<AgenciaFinanciadora> 

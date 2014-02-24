@@ -44,24 +44,24 @@ public class AlunoController
     @Override
     public String novo(){
         entidade = new Aluno();
-        return "admin/editarAluno.xhtml";
+        return "editarAluno.xhtml";
     }
     
     @Override
     public String abrir() {
-        return "admin/editarAluno.xhtml";
+        return "editarAluno.xhtml";
     }
 
     @Override
     public String cancelar() {
-        return "admin/listagemAluno.xhtml";
+        return "listagemAluno.xhtml";
     }
 
     
     @Override
     public String excluir() {
         if(dao.Apagar(entidade)){
-            return "admin/listagemAluno.xhtml";
+            return "listagemAluno.xhtml";
         } else {
             return "";
         }
