@@ -10,35 +10,37 @@
 
         <ui:composition template="./TemplateAdmin.xhtml">
 
-            <ui:define name="content">
+          <ui:define name="content">
                 
-            <center>
-              <p:panelGrid columns="2" >
+            <br/>  
+             <center>
+              <p:panelGrid columns="2" style="color: blue" >
                     
                    <f:facet name="header">  
                     Filtros - Edital  
                    </f:facet>  
 
-                   <h:outputLabel value="Número:" />
+                   <h:outputLabel value="Número:"  style="color: blue; font: menu"/>
                    <p:inputText value="${editalController.filtro.numero}"/>  
 
-                   <h:outputLabel value="Agência Financiadora:" />
+                   <h:outputLabel value="Agência Financiadora:" style="color: blue; font: menu" />
                    <p:selectOneMenu value="${editalController.filtro.agenciaFinanciadora}" label="Agência Financiadora" >
                        <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                       
+                       <f:selectItems value="${agenciaFinanciadoraController.listagem}" />                      
                       
                    </p:selectOneMenu>
                    
                    <f:facet name="footer">  
-                       <p:commandButton ajax="false" value="Filtrar" icon="ui-icon-check" action="${editalController.filtrar()}" style="margin:0"/>  
-                       <p:commandButton ajax="false" value="Novo Edital" action="${editalController.novo()}" />
+                       <p:commandButton ajax="false" value="Filtrar" icon="ui-icon-check" action="${editalController.filtrar()}" style="margin:0; color: blue;"/>  
+                       <p:commandButton ajax="false" value="Novo Edital" action="${editalController.novo()}" style="color: blue" />
                    </f:facet>
                    
-                 </p:panelGrid>
-            </center>
+                 </p:panelGrid>    
+             </center>
+             <br/> <br/>           
               
               
-           <p:dataTable value="${editalController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
+           <p:dataTable value="${editalController.listagem}" var="item" emptyMessage="Registros não Encontrados!" style="font: message-box; color: blue">
             <p:column sortBy="numero" headerText="Número">
                 ${item.numero}
             </p:column>
@@ -48,7 +50,7 @@
             </p:column>
            
             <p:column headerText="Editar">
-                <p:commandButton value="Editar" ajax="false" action="${editalController.abrir}">
+                <p:commandButton value="Editar" ajax="false" action="${editalController.abrir}" style="color: blue">
                     <f:setPropertyActionListener target="${editalController.entidade}" value="${item}" />
                 </p:commandButton>
             </p:column>

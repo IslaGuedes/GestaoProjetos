@@ -18,7 +18,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author Isla Guedes
+ * @author Isla Guedes  
  */
 @Named(value = "agenciaFinanciadoraController")
 @SessionScoped
@@ -41,7 +41,8 @@ public class AgenciaFinanciadoraController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            
+            listagem = null;           
+                    
         } else {
             //mensagem de erro
         }
@@ -66,7 +67,8 @@ public class AgenciaFinanciadoraController
     
     @Override
     public String excluir() {
-        if(dao.Apagar(entidade)){
+        if(dao.Apagar(entidade)){              
+            listagem = null;            
             return "listagemAgenciaFinanciadora.xhtml";
         } else {
             return "";

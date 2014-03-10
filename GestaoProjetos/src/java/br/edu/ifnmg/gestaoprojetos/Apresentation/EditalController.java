@@ -9,6 +9,7 @@ import br.edu.ifnmg.gestaoprojetos.DomainModel.*;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -20,6 +21,10 @@ import javax.ejb.EJB;
 public class EditalController 
     extends ControllerGenerico<Edital> implements Serializable {
 
+    List<AgenciaFinanciadora> listagemAgencia;
+
+    
+    
     /**
      * Creates a new instance of EditalController
      */
@@ -31,10 +36,13 @@ public class EditalController
     @EJB
     EditalRepositorio dao;
     
+    @EJB
+    AgenciaFinanciadoraRepositorio daoAgencia;
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            
+           listagem = null; 
         } else {
             //mensagem de erro
         }
@@ -78,6 +86,22 @@ public class EditalController
     public void setDao(EditalRepositorio dao) {
         this.dao = dao;
     }
+    
+    public List<AgenciaFinanciadora> getListagemAgencia() {
+        if (listagemAgencia == null) {
+            Edital filtro = new Edital();
+            listagemAgencia = daoAgencia.Buscar(null);
+        }       
+        
+        return listagemAgencia;
+    }
+
+    public void setListagemAgencia(List<AgenciaFinanciadora> listagemAgencia) {
+        this.listagemAgencia = listagemAgencia;
+    }
+
+    
+    
     
     
     

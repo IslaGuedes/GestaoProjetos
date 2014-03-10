@@ -34,7 +34,7 @@ public class UsuarioController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            
+            listagem = null;
         } else {
             //mensagem de erro
         }

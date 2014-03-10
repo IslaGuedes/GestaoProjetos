@@ -12,8 +12,9 @@
 
            <ui:define name="content">
                
-             <br/>             
-               <p:panelGrid columns="2" style="font: message-box; color: blue" >
+             <br/> 
+              <center>
+               <p:panelGrid columns="2" style="color: blue" >
                     
                    <f:facet name="header" >  
                     Filtros - Alunos 
@@ -37,7 +38,8 @@
                    </f:facet>
                    
                </p:panelGrid>
-             <br/> <br/>            
+              </center>
+             <br/>             
               
               
            <p:dataTable value="${alunoController.listagem}" var="item" emptyMessage="Registros não Encontrados!" style="font: message-box; color: blue">

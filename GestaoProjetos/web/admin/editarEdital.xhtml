@@ -21,9 +21,9 @@
                         
                     <h:outputLabel value="Agência Financiadora*:" />           
                     <p:selectOneMenu value="${editalController.entidade.agenciaFinanciadora}" label="Agência Financiadora" required="true" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                        <f:selectItem itemLabel="fapemig" itemValue=""/>
-                       //falta buscar agencias...
+                        <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                        <f:selectItems value="${editalController.listagemAgencia}" />
+                        
                    </p:selectOneMenu>
                     
                    <h:outputLabel value="Data de Expedição*:" />

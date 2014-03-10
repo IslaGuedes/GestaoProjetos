@@ -45,6 +45,14 @@ public class Orientador extends Usuario implements Serializable{
     
     @OneToMany
     private List<Aluno> alunos;
+
+    public Orientador() {
+        
+    }
+
+    public Orientador(List<Endereco> endereco, List<Telefone> telefone, List<Email> email) {
+        super(endereco, telefone, email);
+    }
    
     
     //GETTER E SETTER

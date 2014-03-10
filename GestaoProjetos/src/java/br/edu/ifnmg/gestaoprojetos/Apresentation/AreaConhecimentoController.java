@@ -34,6 +34,7 @@ public class AreaConhecimentoController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
+            listagem = null;
             
         } else {
             //mensagem de erro
@@ -59,7 +60,7 @@ public class AreaConhecimentoController
     
     @Override
     public String excluir() {
-        if(dao.Apagar(entidade)){
+        if(dao.Apagar(entidade)){            
             return "listagemAreaConhecimento.xhtml";
         } else {
             return "";

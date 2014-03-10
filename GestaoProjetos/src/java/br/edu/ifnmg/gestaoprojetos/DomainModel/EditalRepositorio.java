@@ -3,9 +3,9 @@
  * and open the template in the editor.
  */
 package br.edu.ifnmg.gestaoprojetos.DomainModel;
-
 import javax.ejb.Local;
-import javax.ejb.Remote;
+
+import static org.eclipse.persistence.jaxb.TypeMappingInfo.ElementScope.Local;
 
 /**
  *

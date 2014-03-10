@@ -49,12 +49,6 @@
                     </p:selectOneMenu>
                     
                     
-                    <h:outputLabel value="Telefone*:" />    
-                    <p:inputText value="${alunoController.entidade.naturalidadeUF}" required="true"/>
-                    
-                    
-                    <h:outputLabel value="Email*:" />           
-                    <p:inputText value="${alunoController.entidade.naturalidadeUF}" required="true"/>
                    
                 </h:panelGrid>
             </p:tab>
@@ -64,11 +58,11 @@
                 <h:panelGrid columns="2">                    
                     
                     <h:outputLabel value="Rua/Av/Estrada*:" />
-                    <p:inputText value="${alunoController.entidade.rg}" required="true"/>   
+                    <p:inputText value="${alunoController.entidade.endereco}" required="true"/>   
                     
                     
                     <h:outputLabel value="Número*:" />
-                    <p:inputText value="${alunoController.entidade.rg}" required="true"/>   
+                    <p:inputText value="${alunoController.entidade.endereco}" required="true"/>   
                     
                     <h:outputLabel value="Complemento:" />
                     <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="true"/>                      
@@ -82,15 +76,54 @@
                    <h:outputLabel value="Cep*:" />
                    <p:inputText value="${alunoController.entidade.zonaEleitoral}" required="true"/> 
                    
+                   <p:commandButton ajax="false" value="adicionar" icon="ui-icon-check" action="${areaConhecimentoController.filtrar()}" style="margin:0"/> 
                    
-                  
+                </h:panelGrid>
+               
+           <p:dataTable value="${areaConhecimentoController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
+            <p:column sortBy="nome" headerText="Nome">
+                ${item.nome}
+            </p:column>
+            
+           
+            <p:column headerText="Remover">
+                <p:commandButton value="Remover" ajax="false" action="${areaConhecimentoController.abrir}">
+                    <f:setPropertyActionListener target="${areaConhecimentoController.entidade}" value="${item}" />
+                </p:commandButton>
+            </p:column>
+              
+          </p:dataTable>               
+                
+       </p:tab>
+              
+           <p:tab title="Telefone">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="DDD*:" />
+                    <p:inputText value="${alunoController.entidade.addEndereco(e)}" required="true"/>   
+                    
+                    <h:outputLabel value="Número*:" />
+                    <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="true"/>                      
+               
+                   <p:commandButton ajax="false" value="adicionar" icon="ui-icon-check" action="${areaConhecimentoController.filtrar()}" style="margin:0"/> 
+               
                 </h:panelGrid> 
+               
                 
             </p:tab>
               
-             
+             <p:tab title="Email">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Endereço*:" />
+                    <p:inputText value="${alunoController.entidade.email}" required="true"/>   
+                    
+                  <p:commandButton ajax="false" value="adicionar" icon="ui-icon-check" action="${areaConhecimentoController.filtrar()}" style="margin:0"/>  
+                   
+                </h:panelGrid> 
+                
+          
+                
+         </p:tab>      
             
-              
               
             <p:tab title="Documentos">
                 <h:panelGrid columns="2">

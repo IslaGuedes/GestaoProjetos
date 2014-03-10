@@ -20,6 +20,10 @@ import javax.ejb.EJB;
 @SessionScoped
 public class AlunoController 
     extends ControllerGenerico<Aluno> implements Serializable {
+    
+     Email email;
+     Telefone telefone;
+     Endereco endereco;
 
     /**
      * Creates a new instance of AlunoController
@@ -27,6 +31,10 @@ public class AlunoController
     public AlunoController() {
         filtro = new Aluno();
         entidade = new Aluno();
+        email= new Email();
+        telefone = new Telefone();
+        endereco = new Endereco();
+        
     }
     
     @EJB
@@ -35,6 +43,7 @@ public class AlunoController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
+            listagem = null;
             
         } else {
             //mensagem de erro
@@ -79,6 +88,31 @@ public class AlunoController
     public void setDao(AlunoRepositorio dao) {
         this.dao = dao;
     }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public Telefone getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Telefone telefone) {
+        this.telefone = telefone;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    
     
     
 

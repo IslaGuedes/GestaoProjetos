@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.gestaoprojetos.DomainModel;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -78,6 +77,56 @@ public class Usuario{
     
     @ManyToOne
     private Nacionalidade nacionalidade;   
+
+    public Usuario() {
+    }
+
+    public Usuario(List<Endereco> endereco, List<Telefone> telefone, List<Email> email) {
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+    }
+    
+    
+    public void addTelefone(Telefone t){
+        if(!telefone.contains(t)){
+            telefone.add(t);
+        }
+        
+    }
+    
+    public void removeTelefone(Telefone t){
+        if(telefone.contains(t)){
+            telefone.remove(t);
+        }
+    }
+    
+    public void addEmail(Email e){
+        if(!email.contains(e)){
+            email.add(e);
+        }
+        
+    }
+    
+    public void removeEmail(Email e){
+        if(email.contains(e)){
+            email.remove(e);
+        }
+    }
+    
+     public void addEndereco(Endereco e){
+        if(!endereco.contains(e)){
+            endereco.add(e);
+        }
+        
+    }
+    
+    public void removeEndereco(Endereco e){
+        if(endereco.contains(e)){
+            endereco.remove(e);
+        }
+    }
+    
     
   
    //GETTER E SETTER
