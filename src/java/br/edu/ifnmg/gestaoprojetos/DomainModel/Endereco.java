@@ -49,9 +49,7 @@ public class Endereco implements Serializable {
         this.complemento = "";
     }
     
-    
-    
-    
+   
     //GETTER E SETTER
     
     public Long getId() {

@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -67,13 +68,13 @@ public class Usuario implements Serializable{
     @ManyToOne 
     private Campus campus;
     
-    @ManyToMany 
+    @ManyToMany(cascade= CascadeType.ALL) 
     private List<Endereco> endereco;  
     
-    @ManyToMany
+    @ManyToMany(cascade= CascadeType.ALL) 
     private List<Telefone> telefone;
     
-    @ManyToMany
+    @ManyToMany(cascade= CascadeType.ALL) 
     private List<Email> email;
     
     private String estado;      

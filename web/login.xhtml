@@ -36,13 +36,11 @@
                     
                 </p:panel>  
                 
-                <div align="left" style="width: 40%">
-                       <p:commandLink value="Cadastrar Usuário" ajax="false"/>
-                </div>
                 
-                <div align="right" style="width: 40%">
-                       <p:commandLink value="Esqueci a Senha" ajax="false"/> 
-                </div>              
+                <p:commandLink  value="Cadastrar Usuário" immediate="true" onclick="${usuarioController.novo()}"/>
+               
+                <p:commandLink value="Esqueci a Senha" immediate="true"/> 
+                            
                   
             </div>
                  

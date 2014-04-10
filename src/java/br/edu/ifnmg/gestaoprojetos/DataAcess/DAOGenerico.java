@@ -25,7 +25,10 @@ public abstract class DAOGenerico<T> implements Repositorio<T> {
     public boolean Salvar(T obj) {
         try{
             //salva o objeto
-            manager.merge(obj);
+            obj = manager.merge(obj);
+            
+            manager.flush();
+            
             return true;
         }catch (Exception ex){
         System.out.println(ex.getMessage());
