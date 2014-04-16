@@ -43,7 +43,7 @@ public class Usuario implements Serializable{
     
     private String rg;
     
-    @Column(length=14) //vai ser unique?? e string
+    @Column(length=14, unique=true) 
     private String cpf;   //CPF LOGIN
     
     private String senha;
@@ -89,6 +89,8 @@ public class Usuario implements Serializable{
 
     
     public void addTelefone(Telefone t){
+        if(telefone == null)
+            telefone = new ArrayList<Telefone>();
         if(!telefone.contains(t)){
             telefone.add(t);
         }
@@ -102,6 +104,8 @@ public class Usuario implements Serializable{
     }
     
     public void addEmail(Email e){
+        if(email == null)
+            email = new ArrayList<Email>();
         if(!email.contains(e)){
             email.add(e);
         }
@@ -114,7 +118,9 @@ public class Usuario implements Serializable{
         }
     }
     
-     public void addEndereco(Endereco e){
+     public void addEndereco(Endereco e){         
+          if(endereco == null)
+            endereco = new ArrayList<Endereco>();
         if(!endereco.contains(e)){
             endereco.add(e);
         }

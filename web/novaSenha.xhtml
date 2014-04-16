@@ -11,8 +11,8 @@
         <ui:composition template="./TemplateExterno.xhtml">
 
             <ui:define name="content">
-              <div align="center">
-                 <p:panel header="Nova Senha" style="width: 40%"/>
+              <div align="center" >
+                 <p:panel header="Nova Senha" style="width: 40%; font: medium; color: blue"/>
                     <p:messages autoUpdate="true"/>
                       
                     <h:form>
@@ -28,11 +28,12 @@
                             
                          (*)Campo de preenchimento obrigatório.
           
-                    </p:panelGrid>
+                      </p:panelGrid>
                     
                     <p:panel id="Rodape">
                         
-                        <p:commandButton value="Enviar Nova Senha para Email" icon="ui-icon-pencil" /> <br/>
+                        <p:commandButton value="Enviar Nova Senha para Email" icon="ui-icon-pencil" /> 
+                        <p:commandButton value="Voltar" immediate="true" action="${usuarioController.cancelar()}"/>
                         
                     </p:panel>
                  </h:form>

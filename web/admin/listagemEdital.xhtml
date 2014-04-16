@@ -16,14 +16,14 @@
              <center>
               <p:panelGrid columns="2" style="color: blue" >
                     
-                   <f:facet name="header">  
-                    Filtros - Edital  
+                   <f:facet name="header"> 
+                     <h2 style="font: medium; color: blue"> Filtros - Edital </h2>                       
                    </f:facet>  
 
-                   <h:outputLabel value="Número:"  style="color: blue; font: menu"/>
+                   <h:outputLabel value="Número:"  />
                    <p:inputText value="${editalController.filtro.numero}"/>  
 
-                   <h:outputLabel value="Agência Financiadora:" style="color: blue; font: menu" />
+                   <h:outputLabel value="Agência Financiadora:"  />
                    <p:selectOneMenu value="${editalController.filtro.agenciaFinanciadora}" 
                                     converter="#{agenciaFinanciadoraConverter}" label="Agência Financiadora" >
                        <f:selectItem itemLabel="Selecione..." itemValue=""/>
@@ -32,8 +32,8 @@
                    </p:selectOneMenu>
                    
                    <f:facet name="footer">  
-                       <p:commandButton ajax="false" value="Filtrar" icon="ui-icon-check" action="${editalController.filtrar()}" style="margin:0; color: blue;"/>  
-                       <p:commandButton ajax="false" value="Novo Edital" action="${editalController.novo()}" style="color: blue" />
+                       <p:commandButton ajax="false" value="Filtrar" icon="ui-icon-check" action="${editalController.filtrar()}" />  
+                       <p:commandButton ajax="false" value="Novo Edital" action="${editalController.novo()}"  />
                    </f:facet>
                    
                  </p:panelGrid>    
@@ -41,7 +41,7 @@
              <br/> <br/>           
               
               
-           <p:dataTable value="${editalController.listagem}" var="item" emptyMessage="Registros não Encontrados!" style="font: message-box; color: blue">
+           <p:dataTable value="${editalController.listagem}" var="item" emptyMessage="Registros não Encontrados!" >
             <p:column sortBy="numero" headerText="Número">
                 ${item.numero}
             </p:column>
@@ -51,7 +51,7 @@
             </p:column>
            
             <p:column headerText="Editar">
-                <p:commandButton value="Editar" ajax="false" action="${editalController.abrir}" style="color: blue">
+                <p:commandButton value="Editar" ajax="false" action="${editalController.abrir}" >
                     <f:setPropertyActionListener target="${editalController.entidade}" value="${item}" />
                 </p:commandButton>
             </p:column>

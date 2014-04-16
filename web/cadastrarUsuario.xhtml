@@ -12,7 +12,7 @@
 
             <ui:define name="content">
                <div align="center">
-                  <p:panel header="Cadastro de Usuário" style="width: 40%"/>
+                  <p:panel header="Cadastro de Usuário" style="width: 40%; font: medium; color: blue"/>
                     <p:messages autoUpdate="true"/>
 
                      <h:form>
@@ -47,7 +47,8 @@
                     
                     <p:panel id="Rodape">
                         
-                        <p:commandButton value="Cadastrar" icon="ui-icon-pencil"/> <br/>
+                        <p:commandButton value="Cadastrar" icon="ui-icon-pencil"/> 
+                        <p:commandButton value="Voltar" immediate="true" action="${usuarioController.cancelar()}"/>
                         
                     </p:panel>
                  </h:form>

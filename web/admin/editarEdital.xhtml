@@ -11,6 +11,12 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
           <ui:define name="content">
+              <p:panel style="font: medium; color: blue">
+                <f:facet name="header" >
+                   <center>
+                       <h2 style="font: medium; color: blue"> Editar Edital </h2>
+                   </center>
+                </f:facet>
              <p:tabView id="tabView"> 
             
             <p:tab title="Dados Gerais - Edital">
@@ -61,8 +67,8 @@
 
         </p:confirmDialog>
 
-         
-            </ui:define>
+          </p:panel> 
+         </ui:define>
 
         </ui:composition>
 

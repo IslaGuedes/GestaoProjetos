@@ -11,11 +11,12 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
             <ui:define name="content">
-              
-               <p:panelGrid columns="2" >
+             <br/>  
+              <center>
+               <p:panelGrid columns="2" style="color: blue" >
                     
                    <f:facet name="header">  
-                     Filtros - Área de Conhecimento  
+                       <h2 style="font: medium; color: blue"> Filtros - Área de Conhecimento  </h2> 
                    </f:facet>  
 
                    <h:outputLabel value="Nome:" />
@@ -32,14 +33,12 @@
                 
             <br/>
             <br/>
+            </center>
               
-              
-                <p:dataTable value="${areaConhecimentoController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
+          <p:dataTable value="${areaConhecimentoController.listagem}" var="item" emptyMessage="Registros não Encontrados!">
             <p:column sortBy="nome" headerText="Nome">
                 ${item.nome}
-            </p:column>
-
-            
+            </p:column>            
            
             <p:column headerText="Editar">
                 <p:commandButton value="Editar" ajax="false" action="${areaConhecimentoController.abrir()}">

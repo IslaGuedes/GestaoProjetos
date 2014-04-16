@@ -14,7 +14,7 @@
              <h:form>
               <div align="center">
                
-                 <p:panel header="Login" style="width: 40%"/>
+                 <p:panel header="Login" style="width: 40%; font: medium; color: blue"/>
                  <p:messages autoUpdate="true"/>
             
                 <p:growl id="growl" showDetail="true" sticky="true" />   
@@ -32,15 +32,15 @@
                 
                 <p:panel id="Rodape" style="width: 40%" >
                 
-                    <p:commandButton value="Entrar" /> <br/>
+                    <p:commandButton value="Entrar" /> <br/> 
+                    <p:commandLink  value="Cadastrar Usuário"  immediate="true" action="${usuarioController.novo()}"/>                
+                    <p:commandLink value="Esqueci a Senha" immediate="true" action="${usuarioController.novaSenha()}"/> 
+                            
                     
                 </p:panel>  
                 
                 
-                <p:commandLink  value="Cadastrar Usuário" immediate="true" onclick="${usuarioController.novo()}"/>
-               
-                <p:commandLink value="Esqueci a Senha" immediate="true"/> 
-                            
+                
                   
             </div>
                  

@@ -11,6 +11,12 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
            <ui:define name="content">
+               <p:panel style="font: medium; color: blue">
+                <f:facet name="header" >
+                   <center>
+                       <h2 style="font: medium; color: blue"> Editar Orientador </h2>
+                   </center>
+                </f:facet>
             <p:tabView id="tabView">
               
             
@@ -166,22 +172,22 @@
         
         <p:panel id="Rodape">
             <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
-            <p:commandButton rendered="#{editalController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
-            <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${editalController.cancelar()}" />
+            <p:commandButton rendered="#{orientadorController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
+            <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${orientadorController.cancelar()}" />
         </p:panel>       
         <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"
                          severity="alert" widgetVar="msgSalvar">
-            <p:commandButton ajax="false" value="SIM" action="${editalController.salvar}" />
+            <p:commandButton ajax="false" value="SIM" action="${orientadorController.salvar}" />
             <p:commandButton ajax="false" value="NÃO" onclick="msgSalvar.hide()" />                    
         </p:confirmDialog>
 
         <p:confirmDialog id="confirmaRemover" message="Deseja realmente Remover os Dados?" header="Confirmação"
                          severity="alert" widgetVar="msgRemover">
-            <p:commandButton ajax="false" value="SIM" action="${editalController.excluir}" />
+            <p:commandButton ajax="false" value="SIM" action="${orientadorController.excluir}" />
             <p:commandButton ajax="false" value="NÃO" onclick="msgRemover.hide()" />
 
         </p:confirmDialog>
-
+       </p:panel>
       </ui:define>
 
     </ui:composition>

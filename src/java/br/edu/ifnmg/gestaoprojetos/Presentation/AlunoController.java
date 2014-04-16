@@ -85,6 +85,10 @@ public class AlunoController
         listagem = dao.Buscar(filtro);
     }
 
+    
+    
+   //getter e setter
+    
     public AlunoRepositorio getDao() {
         return dao;
     }
@@ -118,6 +122,10 @@ public class AlunoController
     }
     
     
+    
+    //Metodos
+    
+    
     public void addTelefone(){
         entidade.addTelefone(telefone);
         dao.Salvar(entidade);
@@ -130,11 +138,29 @@ public class AlunoController
         endereco = new Endereco();
     }
     
+    public void addEmail(){
+        entidade.addEmail(email);
+        dao.Salvar(entidade);
+        email = new Email();
+    }
+    
     public void removeEndereco(){
         entidade.removeEndereco(endereco);
         dao.Salvar(entidade);
         endereco = new Endereco();
     }
+    
+    public void removeTelefone(){
+        entidade.removeTelefone(telefone);
+        dao.Salvar(entidade);
+        telefone = new Telefone();
+    }
+     
+   public void removeEmail(){
+        entidade.removeEmail(email);
+        dao.Salvar(entidade);
+        email = new Email();
+    } 
     
 
 }

@@ -31,6 +31,13 @@ public class UsuarioController
     @EJB
     UsuarioRepositorio dao;
     
+    
+    public String novaSenha(){
+        
+        return "novaSenha.xhtml";
+    }
+    
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
@@ -53,7 +60,7 @@ public class UsuarioController
 
     @Override
     public String cancelar() {
-        return "";
+        return "login.xhtml";
     }
 
     

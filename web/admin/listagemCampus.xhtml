@@ -11,11 +11,12 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
             <ui:define name="content">
-                
-              <p:panelGrid columns="2" >
+              <br/>  
+              <center>   
+              <p:panelGrid columns="2" style="color: blue" >
                     
                    <f:facet name="header">  
-                    Filtros - Campus  
+                       <h2 style="font: medium; color: blue"> Filtros - Campus </h2>
                    </f:facet>  
 
                    <h:outputLabel value="Nome:" />
@@ -25,7 +26,7 @@
                    <p:selectOneMenu value="${campusController.filtro.endereco}" label="Endereço" required="false" >
                        
                        <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                       <f:selectItem itemLabel="" itemValue=""/>
+                       <f:selectItems value="${campusControllerController.listagem}" />
                        
                    </p:selectOneMenu>
                    
@@ -37,6 +38,8 @@
                    </f:facet>
                    
                  </p:panelGrid>
+                  
+              </center>
             <br/>
             <br/>
               

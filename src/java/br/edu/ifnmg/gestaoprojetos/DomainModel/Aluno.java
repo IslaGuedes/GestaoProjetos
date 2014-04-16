@@ -5,6 +5,7 @@
 package br.edu.ifnmg.gestaoprojetos.DomainModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Aluno extends Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;       
     
-    @Column(nullable=false, unique=true)
+    @Column(unique=true)
     private int matricula;   
     
     //Documentos   
@@ -82,6 +83,13 @@ public class Aluno extends Usuario implements Serializable{
     
     @OneToMany
     private List<PlanoTrabalho> planoTrabalho;
+
+    public Aluno() {
+        
+        super();
+    }
+
+    
     
     //GETTER E SETTER
 

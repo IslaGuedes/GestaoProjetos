@@ -22,7 +22,7 @@ public class Email implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(nullable=false) //vai ser unique??
+    @Column(unique=true) 
     private String endereco;
     
     //GETTER E SETTER
@@ -66,7 +66,7 @@ public class Email implements Serializable {
 
     @Override
     public String toString() {
-        return "Email{" + "id=" + id + '}';
+        return endereco;
     }
 
     

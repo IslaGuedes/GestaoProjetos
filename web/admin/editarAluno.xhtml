@@ -11,12 +11,12 @@
         <ui:composition template="./TemplateAdmin.xhtml">
 
             <ui:define name="content">
-                <p:panel style="font: medium; color: blue">
-                    <f:facet name="header" >
-                        <center>
-                         Editar Bolsista
-                        </center>
-                    </f:facet>
+               <p:panel style="font: medium; color: blue">
+                <f:facet name="header" >
+                   <center>
+                       <h2 style="font: medium; color: blue"> Editar Bolsista </h2>
+                   </center>
+                </f:facet>
                 
                  <p:tabView id="tabView">
 
@@ -70,7 +70,7 @@
 
 
                             <h:outputLabel value="Número*:" />
-                            <p:inputText id="txtNumero" value="${alunoController.endereco.numero}" required="false"/>   
+                            <p:inputText id="txtNum" value="${alunoController.endereco.numero}" required="false"/>   
 
                             <h:outputLabel value="Complemento:" />
                             <p:inputText id="txtComplemento" value="${alunoController.endereco.complemento}" required="false"/>                      
@@ -84,9 +84,9 @@
                             <h:outputLabel value="Cep*:" />
                             <p:inputText id="txtCep" value="${alunoController.endereco.cep}" required="false"/> 
 
-                            <p:commandButton value="adicionar" icon="ui-icon-check" 
+                            <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${alunoController.addEndereco()}" style="margin:0"
-                                             update="tblEnderecos txtRua txtNumero txtComplemento txtBairro 
+                                             update="tblEnderecos txtRua txtNum txtComplemento txtBairro 
                                              txtCidade txtCep" /> 
 
                         </h:panelGrid>
@@ -96,6 +96,7 @@
                         <p:dataTable id="tblEnderecos" value="${alunoController.entidade.endereco}" 
                                      var="item" emptyMessage="Registros não Encontrados!" 
                                      style="font: medium; color: blue">
+                            
                             <p:column sortBy="endereco" headerText="Endereço">
                                 ${item}
                             </p:column>
@@ -121,44 +122,82 @@
                     <p:tab rendered="#{alunoController.entidade.id > 0}" title="Telefone">
                         <h:panelGrid columns="5">
                             <h:outputLabel value="DDD*:" />
-                            <p:inputText value="${alunoController.telefone.ddd}" required="false"/>   
+                            <p:inputText id="txtDDD" value="${alunoController.telefone.ddd}" required="false"/>   
 
                             <h:outputLabel value="Número*:" />
-                            <p:inputText value="${alunoController.telefone.numero}" required="false"/>                      
+                            <p:inputText id="txtNumero" value="${alunoController.telefone.numero}" required="false"/>                      
 
-                            <p:commandButton immediate="true" value="Adicionar" icon="ui-icon-check" action="${alunoController.addTelefone()}" style="margin:0"/> 
+                            <p:commandButton value="Adicionar" icon="ui-icon-check" 
+                                             action="${alunoController.addTelefone()}" style="margin:0"
+                                             update="tblTelefone txtDDD txtNumero"/>
+                            
+                            
 
                         </h:panelGrid> 
                         <br/>
                         
-                        <p:dataTable value="${alunoController.entidade.telefone}" var="item" emptyMessage="Registros não Encontrados!" style="font: medium; color: blue">
+                        <p:dataTable id="tblTelefone" value="${alunoController.entidade.telefone}" var="item" emptyMessage="Registros não Encontrados!" style="font: medium; color: blue">
                             <p:column sortBy="ddd" headerText="DDD">
                                 ${item.ddd}
                             </p:column>
 
                             <p:column sortBy="numero" headerText="Número">
                                 ${item.numero}
+                            </p:column>                            
+                            
+                            <p:column sortBy="editar" headerText="Editar">
+                                <p:commandButton ajax="false" value="Editar" >
+                                    <f:setPropertyActionListener target="#{alunoController.telefone}" value="#{item}" />
+                                </p:commandButton>
+                            </p:column>
+                            
+                            <p:column sortBy="remover" headerText="Remover" >
+                                <p:commandButton ajax="false" value="Remover" action="#{alunoController.removeTelefone()}">
+                                    <f:setPropertyActionListener target="#{alunoController.telefone}" value="#{item}" />
+                                </p:commandButton>
                             </p:column>
 
                         </p:dataTable>
 
                     </p:tab>
+                     
 
                     <p:tab rendered="#{alunoController.entidade.id > 0}" title="E-mail">
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="Endereço*:" />
-                            <p:inputText value="${alunoController.email.endereco}" required="false"/>   
+                            <h:outputLabel value="E-mail*:" />
+                            <p:inputText id="txtEndereco" value="${alunoController.email.endereco}" required="false"/>   
 
-                            <p:commandButton ajax="false" value="adicionar" icon="ui-icon-check" action="${areaConhecimentoController.filtrar()}" style="margin:0"/>  
+                            <p:commandButton value="Adicionar" icon="ui-icon-check" 
+                                             action="${alunoController.addEmail()}" style="margin:0"
+                                             update="tblEmail txtEndereco"/>
 
                         </h:panelGrid> 
+                        
+                        <br/>
+                        
+                        <p:dataTable id="tblEmail" value="${alunoController.entidade.email}" var="item" emptyMessage="Registros não Encontrados!" style="font: medium; color: blue">
+                            <p:column sortBy="endereco" headerText="Email">
+                                ${item.endereco}
+                            </p:column>                                                     
+                            
+                            <p:column sortBy="editar" headerText="Editar">
+                                <p:commandButton ajax="false" value="Editar" >
+                                    <f:setPropertyActionListener target="#{alunoController.email}" value="#{item}" />
+                                </p:commandButton>
+                            </p:column>
+                            
+                            <p:column sortBy="remover" headerText="Remover" >
+                                <p:commandButton ajax="false" value="Remover" action="#{alunoController.removeEmail()}">
+                                    <f:setPropertyActionListener target="#{alunoController.email}" value="#{item}" />
+                                </p:commandButton>
+                            </p:column>
 
+                        </p:dataTable>
 
-
-                    </p:tab>      
-
-
-                    <p:tab rendered="#{alunoController.entidade.id > 0}"  title="Documentos">
+                    </p:tab> 
+                     
+                     
+                      <p:tab rendered="#{alunoController.entidade.id > 0}"  title="Documentos">
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Carteira de identidade*:" />
                             <p:inputText value="${alunoController.entidade.rg}" required="false"/>   
