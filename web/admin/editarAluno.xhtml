@@ -128,7 +128,7 @@
                             <p:inputText id="txtNumero" value="${alunoController.telefone.numero}" required="false"/>                      
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
-                                             action="${alunoController.addTelefone()}" style="margin:0"
+                                             action="${alunoController.addTelefone}" style="margin:0"
                                              update="tblTelefone txtDDD txtNumero"/>
                             
                             
@@ -248,31 +248,9 @@
                         </h:panelGrid>  
 
                     </p:tab>
-
-                    <p:tab rendered="#{alunoController.entidade.id > 0}" title="Outras informações">
-                        <h:panelGrid columns="2">
-                            <h:outputLabel value="Trabalha?*:" />  
-                            <p:selectOneRadio value="${alunoController.entidade.trabalhoStatus}" required="false" label="trabalho">
-                                <f:selectItem itemLabel="Sim" itemValue="S"/>
-                                <f:selectItem itemLabel="Não" itemValue="N"/>
-                            </p:selectOneRadio>
-
-                            <h:outputLabel value="Local do Trabalho*:" />           
-                            <p:selectOneMenu value="${alunoController.entidade.listaLocalTrabalho}" label="Local Trabalho" required="false" >
-                                <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                            </p:selectOneMenu>
-
-                            <h:outputLabel value="Telefone*:" />           
-                            <p:selectOneMenu value="${alunoController.entidade.telefone}" label="Telefone" required="false" >
-                                <f:selectItem itemLabel="Selecione..." itemValue=""/>
-
-                            </p:selectOneMenu>
-
-                        </h:panelGrid>                
-
-                    </p:tab>  
-
-                    <p:tab rendered="#{alunoController.entidade.id > 0}" title="Dados dos Pais">
+                     
+                     
+                     <p:tab rendered="#{alunoController.entidade.id > 0}" title="Dados dos Pais">
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Nome do pai ou responsável*:" /> 
                             <p:inputText value="${alunoController.entidade.nomePai}" required="false"/> 
@@ -304,6 +282,32 @@
                         </h:panelGrid> 
 
                     </p:tab>
+                     
+
+                    <p:tab rendered="#{alunoController.entidade.id > 0}" title="Outras informações">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Trabalha?*:" />  
+                            <p:selectOneRadio value="${alunoController.entidade.trabalhoStatus}" required="false" label="trabalho">
+                                <f:selectItem itemLabel="Sim" itemValue="S"/>
+                                <f:selectItem itemLabel="Não" itemValue="N"/>
+                            </p:selectOneRadio>
+
+                            <h:outputLabel value="Local do Trabalho*:" />           
+                            <p:selectOneMenu value="${alunoController.entidade.listaLocalTrabalho}" label="Local Trabalho" required="false" >
+                                <f:selectItem itemLabel="Selecione..." itemValue=""/>
+                            </p:selectOneMenu>
+
+                            <h:outputLabel value="Telefone*:" />           
+                            <p:selectOneMenu value="${alunoController.entidade.telefone}" label="Telefone" required="false" >
+                                <f:selectItem itemLabel="Selecione..." itemValue=""/>
+
+                            </p:selectOneMenu>
+
+                        </h:panelGrid>                
+
+                    </p:tab>  
+
+                    
 
                 </p:tabView>                     
 

@@ -29,8 +29,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
 @DiscriminatorColumn(name = "DTYPE")
-
-public class Usuario implements Serializable{
+public class Usuario implements Entidade, Serializable{
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -274,9 +273,7 @@ public class Usuario implements Serializable{
         this.nacionalidade = nacionalidade;
     }
     
-    
-
-   
+      
     @Override
     public int hashCode() {
         int hash = 0;

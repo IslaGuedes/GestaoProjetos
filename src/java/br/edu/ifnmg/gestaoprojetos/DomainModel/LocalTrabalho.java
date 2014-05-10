@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
  * @author Isla Guedes
  */
 @Entity
-public class LocalTrabalho implements Serializable {
+public class LocalTrabalho implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

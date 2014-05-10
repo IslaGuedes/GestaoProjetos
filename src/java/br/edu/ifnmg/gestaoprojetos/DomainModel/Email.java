@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author Isla Guedes
  */
 @Entity
-public class Email implements Serializable {
+public class Email implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,27 +42,30 @@ public class Email implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 3;
+        hash = 83 * hash + (this.endereco != null ? this.endereco.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Email)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        Email other = (Email) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Email other = (Email) obj;
+        if ((this.endereco == null) ? (other.endereco != null) : !this.endereco.equals(other.endereco)) {
             return false;
         }
         return true;
     }
+    
+
 
     @Override
     public String toString() {

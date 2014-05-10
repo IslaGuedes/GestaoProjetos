@@ -19,7 +19,7 @@ import javax.persistence.Temporal;
  * @author Isla Guedes
  */
 @Entity
-public class Atividade implements Serializable {
+public class Atividade implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

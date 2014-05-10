@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
  * @author Isla Guedes
  */
 @Entity
-public class Campus implements Serializable {
+public class Campus implements Entidade, Serializable {
    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

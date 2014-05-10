@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author Isla Guedes
  */
 @Entity
-public class AreaConhecimento implements Serializable {
+public class AreaConhecimento implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

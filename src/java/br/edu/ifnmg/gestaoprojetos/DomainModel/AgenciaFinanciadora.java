@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author Isla Guedes
  */
 @Entity
-public class AgenciaFinanciadora implements Serializable {
+public class AgenciaFinanciadora implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -76,7 +76,7 @@ public class AgenciaFinanciadora implements Serializable {
 
     @Override
     public String toString() {
-        return nome;
+        return sigla;
     }
 
     

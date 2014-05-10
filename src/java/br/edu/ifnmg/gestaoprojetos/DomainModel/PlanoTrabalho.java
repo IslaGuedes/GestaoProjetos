@@ -20,7 +20,7 @@ import javax.persistence.OneToMany;
  * @author Isla Guedes
  */
 @Entity
-public class PlanoTrabalho implements Serializable {
+public class PlanoTrabalho implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -46,7 +46,7 @@ public class AlunoController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            listagem = null;
+            listagem = null;            
             
         } else {
             //mensagem de erro
@@ -127,6 +127,7 @@ public class AlunoController
     
     
     public void addTelefone(){
+        //entidade = dao.Refresh(entidade.getId());
         entidade.addTelefone(telefone);
         dao.Salvar(entidade);
         telefone = new Telefone();

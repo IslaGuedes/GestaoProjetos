@@ -5,7 +5,9 @@
 package br.edu.ifnmg.gestaoprojetos.DomainModel;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -16,23 +18,23 @@ import javax.persistence.OneToMany;
  * @author Isla Guedes
  */
 @Entity
-public class Orientador extends Usuario implements Serializable{
+public class Orientador extends Usuario implements Entidade, Serializable{
     private static final long serialVersionUID = 1L;
    
-    @Column(nullable=false, unique=true)
+    @Column(unique=true)
     private int matriculaSiape;  
     
-    @Column(nullable=false)
+    
     private String localPermanencia;
     
-    @ManyToMany
+    @ManyToMany(cascade= CascadeType.ALL)
     private List<AreaConhecimento> areaConhecimento;
     
    //Dados de Formação     
-    @Column(nullable=false)
+    
     private String formacaoUniversitaria;
     
-    @Column(nullable=false)
+    
     private String tituloAcademico;    
     
     
@@ -43,8 +45,25 @@ public class Orientador extends Usuario implements Serializable{
     @OneToMany
     private List<Aluno> alunos;
 
-    
+    public Orientador() {
+        this.areaConhecimento = new ArrayList<AreaConhecimento>();
+    }
 
+    public void addAreaConhecimento(AreaConhecimento a){
+        if(areaConhecimento == null)
+            areaConhecimento = new ArrayList<AreaConhecimento>();
+        if(!areaConhecimento.contains(a)){
+            areaConhecimento.add(a);
+        }
+        
+    }
+    
+    public void removeAreaConhecimento(AreaConhecimento a){
+        if(areaConhecimento.contains(a)){
+            areaConhecimento.remove(a);
+        }
+    }
+    
     
    
     
