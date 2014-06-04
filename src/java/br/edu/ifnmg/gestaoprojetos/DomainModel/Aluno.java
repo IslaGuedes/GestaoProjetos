@@ -24,10 +24,6 @@ import javax.persistence.OneToMany;
 public class Aluno extends Usuario implements Entidade, Serializable{
     private static final long serialVersionUID = 1L;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;       
-    
     @Column(unique=true)
     private int matricula;   
     
@@ -78,8 +74,8 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     @ManyToOne
     private Curso curso;  
     
-    @ManyToMany 
-    private List<LocalTrabalho> listaLocalTrabalho;  
+   
+    private String localTrabalho;  
     
     @OneToMany
     private List<PlanoTrabalho> planoTrabalho;
@@ -244,13 +240,15 @@ public class Aluno extends Usuario implements Entidade, Serializable{
         this.curso = curso;
     }
 
-    public List<LocalTrabalho> getListaLocalTrabalho() {
-        return listaLocalTrabalho;
+    public String getLocalTrabalho() {
+        return localTrabalho;
     }
 
-    public void setListaLocalTrabalho(List<LocalTrabalho> listaLocalTrabalho) {
-        this.listaLocalTrabalho = listaLocalTrabalho;
+    public void setLocalTrabalho(String localTrabalho) {
+        this.localTrabalho = localTrabalho;
     }
+
+   
 
     public List<PlanoTrabalho> getPlanoTrabalho() {
         return planoTrabalho;
@@ -260,45 +258,5 @@ public class Aluno extends Usuario implements Entidade, Serializable{
         this.planoTrabalho = planoTrabalho;
     }
     
-    
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + (this.id != null ? this.id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Aluno other = (Aluno) obj;
-        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return super.getNome();
-    }
-    
-    
-
-  
+   
 }

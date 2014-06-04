@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Presentation;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.AreaConhecimento;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Projeto;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.ProjetoRepositorio;
 import javax.inject.Named;
@@ -19,15 +20,18 @@ import javax.ejb.EJB;
 @SessionScoped
 public class ProjetoController 
     extends ControllerGenerico<Projeto> implements Serializable {
+    
+    AreaConhecimento areaConhecimento;
 
     /**
      * Creates a new instance of ProjetoController
      */
+    
     public ProjetoController() {
       
         filtro = new Projeto();
         entidade = new Projeto();  
-        
+        areaConhecimento = new AreaConhecimento();
     }
     
     @EJB
@@ -81,8 +85,28 @@ public class ProjetoController
     public void setDao(ProjetoRepositorio dao) {
         this.dao = dao;
     }
-    
-    
 
+    public AreaConhecimento getAreaConhecimento() {
+        return areaConhecimento;
+    }
+
+    public void setAreaConhecimento(AreaConhecimento areaConhecimento) {
+        this.areaConhecimento = areaConhecimento;
+    }
+    
+    //Metodos
+    
+      public void addAreaConhecimento(){
+        entidade.addAreaConhecimento(areaConhecimento);
+        dao.Salvar(entidade);
+        areaConhecimento = new AreaConhecimento();
+     }
+      
+      public void removeAreaConhecimento(){
+        entidade.removeAreaConhecimento(areaConhecimento);
+        dao.Salvar(entidade);
+        areaConhecimento = new AreaConhecimento();
+      } 
+    
 }
 

@@ -17,8 +17,8 @@
                        <h2 style="font: medium; color: blue"> Editar Orientador </h2>
                    </center>
                 </f:facet>
-            <p:tabView id="tabView">
-              
+                   
+            <p:tabView id="tabView">              
             
              <p:tab title="Dados Gerais">
                 <h:panelGrid columns="2">
@@ -64,32 +64,32 @@
                 
           <p:tab rendered="#{orientadorController.entidade.id > 0}" title="Área Conhecimento" >
               
-               <h:panelGrid columns="2">
-                            <h:outputLabel value="Nome*:" />
-                            <p:inputText id="txtNome" value="${orientadorController.email.endereco}" required="false"/>   
+                  <h:panelGrid columns="2">
+                            <h:outputLabel value="Area de Conhecimento*:" />           
+                            <p:selectOneMenu value="${orientadorController.areaConhecimento}" label="Area de Conhecimento"
+                                             converter="${areaConhecimentoConverter}" required="false"
+                                            >
+                                <f:selectItem itemLabel="Selecione..." noSelectionOption="false"/>
+                                <f:selectItems value="${areaConhecimentoController.listagem}"/>
 
+                            </p:selectOneMenu>
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
-                                             action="${orientadorController.addEmail()}" style="margin:0"
-                                             update="tblAreaConhecimento txtNome"/>
+                                             action="${orientadorController.addAreaConhecimento()}" style="margin:0"/>
 
-                        </h:panelGrid> 
+                  </h:panelGrid> 
                         
                         <br/>
                         
-                        <p:dataTable id="tblAreaConhecimento" value="${orientadorController.entidade.email}" var="item" emptyMessage="Registros não Encontrados!" style="font: medium; color: blue">
-                            <p:column sortBy="endereco" headerText="Email">
-                                ${item.endereco}
+                        <p:dataTable  value="${orientadorController.entidade.areaConhecimento}" var="item" emptyMessage="Registros não Encontrados!" style="font: medium; color: blue">
+                            <p:column sortBy="nome" headerText="Nome" >
+                                ${item.nome}
                             </p:column>                                                     
                             
-                            <p:column sortBy="editar" headerText="Editar">
-                                <p:commandButton ajax="false" value="Editar" >
-                                    <f:setPropertyActionListener target="#{orientadorController.email}" value="#{item}" />
-                                </p:commandButton>
-                            </p:column>
+                           
                             
                             <p:column sortBy="remover" headerText="Remover" >
-                                <p:commandButton ajax="false" value="Remover" action="#{orientadorController.removeEmail()}">
-                                    <f:setPropertyActionListener target="#{orientadorController.email}" value="#{item}" />
+                                <p:commandButton ajax="false" value="Remover"  action="#{orientadorController.removeAreaConhecimento()}">
+                                    <f:setPropertyActionListener target="#{orientadorController.areaConhecimento}" value="#{item}" />
                                 </p:commandButton>
                             </p:column>
 

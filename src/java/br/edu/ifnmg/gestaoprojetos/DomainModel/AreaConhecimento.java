@@ -20,9 +20,8 @@ public class AreaConhecimento implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     
-    @Column(nullable=false)
+    private Long id;       
     private String nome;
 
     
@@ -43,28 +42,30 @@ public class AreaConhecimento implements Entidade, Serializable {
         this.nome = nome;
     }
 
-   
-
-    
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 7;
+        hash = 29 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AreaConhecimento)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        AreaConhecimento other = (AreaConhecimento) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AreaConhecimento other = (AreaConhecimento) obj;
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
+
+
+   
 
     @Override
     public String toString() {

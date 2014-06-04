@@ -142,10 +142,9 @@ public class OrientadorController
     }
     
     public void addAreaConhecimento(){
-        //entidade = dao.Refresh(entidade.getId());
-        //entidade.addAreaConhecimento(areaConhecimento)
+        entidade.addAreaConhecimento(areaConhecimento);
         dao.Salvar(entidade);
-        telefone = new Telefone();
+        areaConhecimento = new AreaConhecimento();
     }
     
     public void addEndereco(){
@@ -176,6 +175,12 @@ public class OrientadorController
         entidade.removeEmail(email);
         dao.Salvar(entidade);
         email = new Email();
+    } 
+   
+    public void removeAreaConhecimento(){
+        entidade.removeAreaConhecimento(areaConhecimento);
+        dao.Salvar(entidade);
+        areaConhecimento = new AreaConhecimento();
     } 
     
     

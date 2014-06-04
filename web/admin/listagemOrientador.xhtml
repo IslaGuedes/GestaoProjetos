@@ -25,13 +25,7 @@
                    <h:outputLabel value="Nome:" />
                    <p:inputText value="${orientadorController.filtro.nome}"/>
                    
-                   <h:outputLabel value="Área de Conhecimento" />
-                   <p:selectOneMenu value="${orientadorController.filtro.areaConhecimento}" label="Área de Conhecimento" 
-                                    converter="#{areaConhecimentoConverter}" required="false" >
-                       <f:selectItem itemLabel="Selecione..." itemValue=""/> 
-                       <f:selectItems value="${areaConhecimentoController.listagem}" />
-                       
-                   </p:selectOneMenu>
+                   
                   
                    <f:facet name="footer">  
                      <p:commandButton ajax="false" value="Filtrar" icon="ui-icon-check" action="${orientadorController.filtrar}" style="margin:0"/>  

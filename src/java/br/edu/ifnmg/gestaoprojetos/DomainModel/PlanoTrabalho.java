@@ -37,35 +37,28 @@ public class PlanoTrabalho implements Entidade, Serializable {
     @ManyToOne
     private Orientador orientador;
     
-    @Column(nullable=false)
+   
     private String localRealizacaoProjeto; //laboratÃ³rio, sala, etc
     
     @Lob
-    @Column(nullable=false)
-    private String programaPlano; //rograma a que o plano estÃ¡ envolvido
+    private String programaPlano; //programa a que o plano estÃ¡ envolvido
     
     @Lob
-    @Column(nullable=false)
     private String introducao; //problema a ser estudado;
    
     @Lob
-    @Column(nullable=false)
     private String justificativa;
     
     @Lob
-    @Column(nullable=false)
     private String objetivos;
     
     @Lob
-    @Column(nullable=false)
     private String metodologia;
     
     @Lob
-    @Column(nullable=false)
     private String resutadosEsperados;
     
     @Lob
-    @Column(nullable=false)
     private String referenciasBibliograficas;
     
     

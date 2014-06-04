@@ -31,8 +31,7 @@ public class Edital implements Entidade, Serializable {
     @ManyToOne
     private AgenciaFinanciadora agenciaFinanciadora;
     
-    @Temporal(javax.persistence.TemporalType.DATE)
-  
+    @Temporal(javax.persistence.TemporalType.DATE) 
     private Date dataExpedicao;
     
     @Temporal(javax.persistence.TemporalType.DATE)

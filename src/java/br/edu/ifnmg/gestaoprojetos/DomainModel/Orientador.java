@@ -22,19 +22,17 @@ public class Orientador extends Usuario implements Entidade, Serializable{
     private static final long serialVersionUID = 1L;
    
     @Column(unique=true)
-    private int matriculaSiape;  
-    
+    private int matriculaSiape;     
     
     private String localPermanencia;
     
-    @ManyToMany(cascade= CascadeType.ALL)
+    @ManyToMany(cascade= CascadeType.MERGE)
     private List<AreaConhecimento> areaConhecimento;
     
    //Dados de Formação     
     
     private String formacaoUniversitaria;
-    
-    
+        
     private String tituloAcademico;    
     
     
@@ -50,8 +48,9 @@ public class Orientador extends Usuario implements Entidade, Serializable{
     }
 
     public void addAreaConhecimento(AreaConhecimento a){
-        if(areaConhecimento == null)
+        if(areaConhecimento == null) {
             areaConhecimento = new ArrayList<AreaConhecimento>();
+        }
         if(!areaConhecimento.contains(a)){
             areaConhecimento.add(a);
         }
@@ -63,9 +62,6 @@ public class Orientador extends Usuario implements Entidade, Serializable{
             areaConhecimento.remove(a);
         }
     }
-    
-    
-   
     
     //GETTER E SETTER
 
@@ -124,6 +120,7 @@ public class Orientador extends Usuario implements Entidade, Serializable{
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
     }
+    
     
     
     

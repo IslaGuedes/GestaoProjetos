@@ -4,10 +4,9 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Presentation;
 
-import br.edu.ifnmg.gestaoprojetos.DomainModel.AgenciaFinanciadora;
-import br.edu.ifnmg.gestaoprojetos.DomainModel.AgenciaFinanciadoraRepositorio;
-import br.edu.ifnmg.gestaoprojetos.DomainModel.AreaConhecimento;
-import br.edu.ifnmg.gestaoprojetos.DomainModel.AreaConhecimentoRepositorio;
+import br.edu.ifnmg.gestaoprojetos.DomainModel.Curso;
+import br.edu.ifnmg.gestaoprojetos.DomainModel.Orientador;
+import br.edu.ifnmg.gestaoprojetos.DomainModel.OrientadorRepositorio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -20,19 +19,19 @@ import javax.faces.convert.Converter;
  *
  * @author Isla Guedes
  */
-@Named(value = "areaConhecimentoConverter")
+@Named(value = "orientadorConverter")
 @SessionScoped
-public class AreaConhecimentoConverter implements Serializable, Converter {
+public class OrientadorConverter implements Serializable,Converter {
 
     /**
-     * Creates a new instance of AreaConhecimentoConverter
+     * Creates a new instance of OrientadorConverter
      */
-    public AreaConhecimentoConverter() {
+    public OrientadorConverter() {
     }
     
     @EJB
-    AreaConhecimentoRepositorio daoAreaConhecimento;
-
+    OrientadorRepositorio daoOrientador;
+    
     /**
      * Creates a new instance of LocalConverter
      */
@@ -44,17 +43,17 @@ public class AreaConhecimentoConverter implements Serializable, Converter {
             return null;
         } else {
             Long id = Long.parseLong(value);
-            return daoAreaConhecimento.Abrir(id);
+            return daoOrientador.Abrir(id);
         }
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value == null || value.toString() == null || value.toString() == "") {
+        if (value == null || value.toString().equals("")) {
             return "";
         } else {
-            AreaConhecimento ac = (AreaConhecimento) value;
-            return ac.getId().toString();
+            Orientador o = (Orientador) value;
+            return o.getId().toString();
         }
     }
 

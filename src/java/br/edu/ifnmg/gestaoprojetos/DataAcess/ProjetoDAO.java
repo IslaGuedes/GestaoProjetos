@@ -26,25 +26,30 @@ public class ProjetoDAO
     
     @Override
     public List<Projeto> Buscar(Projeto obj) {
-        String sql = "select a from Projeto a";
+         String sql = "select p from Projeto p";
         
         String filtros = "";
         
         if(obj != null){
             if(obj.getId() != null){
-                filtros += "a.id = " + obj.getId();
+                filtros += "p.id = " + obj.getId();
             }
-            if(obj.getTitulo() != null){
+            
+        if(obj.getNumeroCadastro() > 0){
                 if(filtros.length() > 0)
                     filtros += " and ";
-                filtros += "a.titulo like '%" + obj.getTitulo() + "%'"; 
+                filtros += "p.numeroCadastro = " + obj.getNumeroCadastro() ; 
             }
-            //if(obj.getNumeroCadastro() != null){
-              //  if(filtros.length() > 0)
-                //    filtros += " and ";
-               // filtros += "a.sigla like '%" + obj.getNumeroCadastro() + "%'"; 
-            //}
-        }
+            
+            
+         if(obj.getTitulo() != null){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "p.titulo like '%" + obj.getTitulo() + "%'"; 
+            }
+            
+         
+          }
         
         if(filtros.length() > 0){
             sql += " where " + filtros;
@@ -54,7 +59,7 @@ public class ProjetoDAO
         
         return consulta.getResultList();
     }
-    
+        
     
 }
 

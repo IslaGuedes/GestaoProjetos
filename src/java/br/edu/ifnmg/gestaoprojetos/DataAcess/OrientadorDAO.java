@@ -48,11 +48,7 @@ public class OrientadorDAO
                 filtros += "a.nome like '%" + obj.getNome() + "%'"; 
             }
             
-         if(obj.getAreaConhecimento() != null){
-                if(filtros.length() > 0)
-                    filtros += " and ";
-                filtros += "a.areaconhecimento like '%" + obj.getAreaConhecimento() + "%'"; 
-            }
+         
           }
         
         if(filtros.length() > 0){

@@ -293,9 +293,7 @@
                             </p:selectOneRadio>
 
                             <h:outputLabel value="Local do Trabalho*:" />           
-                            <p:selectOneMenu value="${alunoController.entidade.listaLocalTrabalho}" label="Local Trabalho" required="false" >
-                                <f:selectItem itemLabel="Selecione..." itemValue=""/>
-                            </p:selectOneMenu>
+                            <p:inputText value="${alunoController.entidade.localTrabalho}" required="false"/>
 
                             <h:outputLabel value="Telefone*:" />           
                             <p:selectOneMenu value="${alunoController.entidade.telefone}" label="Telefone" required="false" >

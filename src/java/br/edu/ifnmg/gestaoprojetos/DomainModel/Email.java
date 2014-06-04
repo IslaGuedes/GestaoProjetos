@@ -46,7 +46,7 @@ public class Email implements Entidade, Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 83 * hash + (this.endereco != null ? this.endereco.hashCode() : 0);
+        hash = 71 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -59,13 +59,13 @@ public class Email implements Entidade, Serializable {
             return false;
         }
         final Email other = (Email) obj;
-        if ((this.endereco == null) ? (other.endereco != null) : !this.endereco.equals(other.endereco)) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
-    
 
+  
 
     @Override
     public String toString() {
