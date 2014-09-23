@@ -11,6 +11,10 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -81,5 +85,17 @@ public class ModalidadeController
         this.dao = dao;
     }
     
-    
+     public void validaSigla(FacesContext context, UIComponent component, Object value) throws ValidatorException{
+       
+        Modalidade tmp = dao.Abrir(value.toString());
+        
+        if (tmp != null){
+            FacesMessage msg
+                    = new FacesMessage("Sigla já cadastrada!");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+            
+        }
+        
+    }
 }

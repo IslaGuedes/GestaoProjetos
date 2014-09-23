@@ -10,6 +10,10 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -20,6 +24,7 @@ import javax.ejb.EJB;
 public class AgenciaFinanciadoraController 
     extends ControllerGenerico<AgenciaFinanciadora> implements Serializable {
  
+   
     
     /**
      * Creates a new instance of AgenciaFinanciadoraController
@@ -27,19 +32,43 @@ public class AgenciaFinanciadoraController
     
     public AgenciaFinanciadoraController() {
         filtro = new AgenciaFinanciadora();
-        entidade = new AgenciaFinanciadora();       
+        entidade = new AgenciaFinanciadora();
+        
     }
 
     @EJB
     AgenciaFinanciadoraRepositorio dao;
+    
+    public void exibirMensagem(String msg) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage(msg));
+    }
 
     @Override
     public void salvar() {
-        if(dao.Salvar(entidade)){
-            listagem = null;
-        } else {
-            //mensagem de erro
+        
+      if(dao.Salvar(entidade)){      
+                /*
+        if (entidade.getNome().trim().length() == 0) {
+            exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
+            return;
         }
+        
+        
+        if (entidade.getSigla().trim().length() == 0) {
+            exibirMensagem("preencha o campo Sigla com caracteres diferentes de espaço!");
+            return;
+        }
+        
+        if(entidade.getSigla() == dao.Buscar(nul) {
+            
+        }
+        */
+        
+        listagem = null;
+        exibirMensagem("Operação realizada com Sucesso!");
+
+      }
     }
 
     @Override
@@ -61,12 +90,13 @@ public class AgenciaFinanciadoraController
     
     @Override
     public String excluir() {
+        
         if(dao.Apagar(entidade)){
             listagem = null;
-            return "listagemAgenciaFinanciadora.xhtml";
-        } else {
-            return "";
-        }
+            exibirMensagem("Apagado com sucesso!");
+            
+        } 
+        return "listagemAgenciaFinanciadora.xhtml";
     }
 
     @Override
@@ -81,6 +111,21 @@ public class AgenciaFinanciadoraController
     public void setDao(AgenciaFinanciadoraRepositorio dao) {
         this.dao = dao;
     }
-  
-  
+    
+    public void validaSigla(FacesContext context, UIComponent component, Object value) throws ValidatorException{
+       
+      
+          
+        AgenciaFinanciadora tmp = dao.Abrir(value.toString());
+        
+        if (tmp != null){
+            FacesMessage msg
+                    = new FacesMessage("Sigla já cadastrada!");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+            
+        }
+        
+     
+    }
 }

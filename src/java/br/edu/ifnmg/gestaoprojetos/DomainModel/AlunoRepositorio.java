@@ -16,6 +16,6 @@ public interface AlunoRepositorio
     extends Repositorio<Aluno> 
 
     {        
-     
+     public Aluno Abrir(int matricula);
 }
 

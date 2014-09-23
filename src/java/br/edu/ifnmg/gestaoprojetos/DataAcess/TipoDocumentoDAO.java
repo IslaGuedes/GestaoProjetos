@@ -52,5 +52,16 @@ public class TipoDocumentoDAO
         return consulta.getResultList();
     }
     
-    
+     public TipoDocumento Abrir(String nome) {
+        String sql = "select t from TipoDocumento t where t.nome = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", nome);
+        try {
+            return (TipoDocumento)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }  
 }

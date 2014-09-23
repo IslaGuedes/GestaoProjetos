@@ -29,6 +29,7 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     
     //Documentos   
    
+    @Column(unique=true)
     private String tituloEleitoral;
     
     private String secaoEleitoral;
@@ -43,15 +44,15 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     
     //Dados dos pais    
     private String nomePai;
-    
+        
     private String rgPai;
     
     private String orgaoExpedidorPai;
     
-    @Column(length=14)
     private String cpfPai;
     
     private String nomeMae;
+    
     
     private String rgMae;
     
@@ -63,6 +64,7 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     //Dados da Conta
     private String banco;
     
+    @Column(unique=true)
     private int contaBancaria;   
     
     private int agencia;      
@@ -80,7 +82,7 @@ public class Aluno extends Usuario implements Entidade, Serializable{
 
     public Aluno() {
         
-        super();  //PRECISA ??
+        super(); 
     }
 
     

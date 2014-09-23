@@ -4,12 +4,17 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Presentation;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.AgenciaFinanciadora;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Campus;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.CampusRepositorio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -31,13 +36,50 @@ public class CampusController
     @EJB
     CampusRepositorio dao;
     
+     public void exibirMensagem(String msg) {
+       FacesContext context = FacesContext.getCurrentInstance();
+       context.addMessage(null, new FacesMessage(msg));
+    }
+     
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            listagem = null;
             
-        } else {
-            //mensagem de erro
+          if (entidade.getNome().trim().length() == 0) {
+              exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
+              return;
+          }
+          
+          if (entidade.getEndereco().getRua().trim().length() == 0) {
+              exibirMensagem("preencha o campo Rua com caracteres diferentes de espaço!");
+              return;
+          }
+          
+          if (entidade.getEndereco().getNumero() == 0) {
+              exibirMensagem("preencha o campo Número com caracteres diferentes de espaço!");
+              return;
+          }
+          
+          if (entidade.getEndereco().getBairro().trim().length() == 0) {
+              exibirMensagem("preencha o campo Bairro com caracteres diferentes de espaço!");
+              return;
+          }
+          
+          if (entidade.getEndereco().getCep().trim().length() == 0) {
+              exibirMensagem("preencha o campo Cep com caracteres diferentes de espaço!");
+              return;
+          }
+          
+          if ((entidade.getEndereco().getCep().length()<8) || (entidade.getEndereco().getCep().length()>8)){
+              exibirMensagem("O campo Cep ser preenchido com 8 caracteres!");
+              return;
+          }
+          
+          
+            listagem = null;
+            exibirMensagem("Operação realizada com Sucesso!");
+            
         }
     }
 
@@ -81,6 +123,19 @@ public class CampusController
         this.dao = dao;
     }
     
+   public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
+       
+        Campus tmp = dao.Abrir(value.toString());
+        
+        if (tmp != null){
+            FacesMessage msg
+                    = new FacesMessage("Campus já cadastrado!");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+            
+        }
+        
+    }  
     
 
 }

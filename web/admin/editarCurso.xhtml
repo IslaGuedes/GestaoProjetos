@@ -25,7 +25,8 @@
                  <h:panelGrid columns="2">
                      
                     <h:outputLabel value="Nome*:" />
-                    <p:inputText size="35" value="${cursoController.entidade.nome}" required="true" style="width: 150%"/>                      
+                    <p:inputText size="35" value="${cursoController.entidade.nome}"
+                                 validator="#{cursoController.validaNome}" required="true" style="width: 150%"/>                      
                         
                     <h:outputLabel value="Sigla*:" />           
                     <p:inputText size="35" value="${cursoController.entidade.sigla}" required="true"/>

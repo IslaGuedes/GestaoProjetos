@@ -13,7 +13,10 @@ import br.edu.ifnmg.gestaoprojetos.DomainModel.Telefone;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.GregorianCalendar;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -45,14 +48,57 @@ public class OrientadorController
     @EJB
     OrientadorRepositorio dao;
     
+    public void exibirMensagem(String msg) {
+       FacesContext context = FacesContext.getCurrentInstance();
+       context.addMessage(null, new FacesMessage(msg));
+    }
+    
     @Override
-    public void salvar() {        
+    public void salvar() { 
+        GregorianCalendar datahoje = new GregorianCalendar();
+        
         if(dao.Salvar(entidade)){
-            listagem = null; 
+           if (entidade.getNome().trim().length() == 0) {
+                exibirMensagem("preencha o campo Nome Completo com caracteres diferentes de espaço!");
+              return;
+            }
             
-        } else {
-            //mensagem de erro
-        }
+            if (entidade.getMatriculaSiape() == 0) {
+                exibirMensagem("preencha o campo Matrícula Siape com caracteres diferentes de espaço!");
+              return;
+            }
+            
+            if (entidade.getLocalPermanencia().trim().length() == 0) {
+                exibirMensagem("preencha o campo Local de Permanência com caracteres diferentes de espaço!");
+              return;
+            }
+            
+            if (entidade.getDataNascimento() != null) {
+             if (entidade.getDataNascimento().before(datahoje.getTime())) {
+                exibirMensagem("Data de Nascimento não pode ser menor que a Data de hoje!");
+                 return;
+             }
+            }
+            
+            if (entidade.getNaturalidadeUF().trim().length() == 0) {
+                exibirMensagem("preencha o campo Naturalidade-UF com caracteres diferentes de espaço!");
+              return;
+            }
+            
+             if (entidade.getNacionalidade().trim().length() == 0) {
+                exibirMensagem("preencha o campo Nacionaliade com caracteres diferentes de espaço!");
+              return;
+            }
+             
+            if (entidade.getEstado().trim().length() == 0) {
+                exibirMensagem("preencha o campo Estado com caracteres diferentes de espaço!");
+              return;
+            }
+            
+        listagem = null;
+        exibirMensagem("Operação realizada com Sucesso!");
+  
+        } 
     }
 
     @Override
@@ -76,10 +122,9 @@ public class OrientadorController
     public String excluir() {
         if(dao.Apagar(entidade)){
             listagem = null; 
-            return "listagemOrientador.xhtml";
-        } else {
-            return "";
-        }
+            exibirMensagem("Apagado com sucesso!");
+        } 
+      return "listagemOrientador.xhtml";
     }
 
     @Override

@@ -16,5 +16,5 @@ public interface AgenciaFinanciadoraRepositorio
     extends Repositorio<AgenciaFinanciadora> 
 
    {
-    
+    public AgenciaFinanciadora Abrir(String sigla);
 }

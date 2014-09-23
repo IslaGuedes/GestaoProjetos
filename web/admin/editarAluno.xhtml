@@ -27,7 +27,8 @@
                             <p:inputText value="${alunoController.entidade.nome}" required="true" style="width: 100%"/>                      
 
                             <h:outputLabel value="Matrícula*:" />
-                            <p:inputText value="${alunoController.entidade.matricula}" required="true"/>  
+                            <p:inputText value="${alunoController.entidade.matricula}"
+                                         validator="#{alunoController.validaMatricula}" required="true"/>  
 
                             <h:outputLabel value="Curso*:" />           
                             <p:selectOneMenu value="${alunoController.entidade.curso}" label="Curso"
@@ -84,7 +85,7 @@
                             <p:inputText id="txtCidade" value="${alunoController.endereco.cidade}" required="false"/>  
 
                             <h:outputLabel value="Cep*:" />
-                            <p:inputText id="txtCep" value="${alunoController.endereco.cep}" required="false"/> 
+                            <p:inputMask id="txtCep" value="${alunoController.endereco.cep}" mask="99.999-999" required="false"/> 
                             
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${alunoController.addEndereco()}" style="margin:0"
@@ -128,7 +129,8 @@
                             <p:inputText id="txtDDD" value="${alunoController.telefone.ddd}" required="false"/>   
 
                             <h:outputLabel value="Número*:" />
-                            <p:inputText id="txtNumero" value="${alunoController.telefone.numero}" required="false"/>                      
+                            <p:inputText id="txtNumero"  value="${alunoController.telefone.numero}" 
+                                          required="false"/>                      
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${alunoController.addTelefone}" style="margin:0"
@@ -168,7 +170,8 @@
                         <br/>
                         <h:panelGrid columns="2">                            
                             <h:outputLabel value="E-mail*:" />
-                            <p:inputText id="txtEndereco" value="${alunoController.email.endereco}" required="false" style="width: 150%"/>   
+                            <p:inputText id="txtEndereco" value="${alunoController.email.endereco}" 
+                                         validator="#{usuarioController.validaEmail}"  required="false" style="width: 150%"/>   
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${alunoController.addEmail()}" update="tblEmail txtEndereco"/>
@@ -204,7 +207,8 @@
                         <h:panelGrid columns="6">
                             
                             <h:outputLabel value="Carteira de identidade*:" />
-                            <p:inputText value="${alunoController.entidade.rg}" required="false"/>   
+                            <p:inputText value="${alunoController.entidade.rg}" 
+                                         validator="#{usuarioController.validaRG}" required="false"/>   
 
                             <h:outputLabel value="Órgão Expeditor*:" />
                             <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="false"/>                      

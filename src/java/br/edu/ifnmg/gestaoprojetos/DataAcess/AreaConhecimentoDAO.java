@@ -51,7 +51,18 @@ public class AreaConhecimentoDAO
         return consulta.getResultList();
     }
     
-    
+   public AreaConhecimento Abrir(String nome) {
+        String sql = "select a from AreaConhecimento a where a.nome = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", nome);
+        try {
+            return (AreaConhecimento)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }  
     
     
     

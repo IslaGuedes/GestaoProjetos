@@ -38,7 +38,7 @@ public class Orientador extends Usuario implements Entidade, Serializable{
     
    //Dados de Solicitação
     @OneToMany
-     private List<Projeto> projetos;
+    private List<Projeto> projetos;
     
     @OneToMany
     private List<Aluno> alunos;

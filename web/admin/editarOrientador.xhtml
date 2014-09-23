@@ -121,7 +121,7 @@
                             <p:inputText id="txtCidade" value="${orientadorController.endereco.cidade}" required="false"/>  
 
                             <h:outputLabel value="Cep*:" />
-                            <p:inputText id="txtCep" value="${orientadorController.endereco.cep}" required="false"/> 
+                            <p:inputMask id="txtCep" mask="99.999-999" value="${orientadorController.endereco.cep}" required="false"/> 
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${orientadorController.addEndereco()}" style="margin:0"
@@ -165,7 +165,8 @@
                             <p:inputText id="txtDDD" value="${orientadorController.telefone.ddd}" required="false"/>   
 
                             <h:outputLabel value="Número*:" />
-                            <p:inputText id="txtNumero" value="${orientadorController.telefone.numero}" required="false"/>                      
+                            <p:inputText id="txtNumero" value="${orientadorController.telefone.numero}"
+                                         required="false"/>                      
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${orientadorController.addTelefone}" style="margin:0"
@@ -206,7 +207,8 @@
                 <br/>
                         <h:panelGrid columns="2">
                             <h:outputLabel value="E-mail*:" />
-                            <p:inputText id="txtEndereco" value="${orientadorController.email.endereco}" required="false" style="width: 150%"/>   
+                            <p:inputText id="txtEndereco" value="${orientadorController.email.endereco}"
+                                         validator="#{usuarioController.validaEmail}" required="false" style="width: 150%"/>   
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${orientadorController.addEmail()}" style="margin:0"
@@ -242,7 +244,8 @@
                <br/>
                 <h:panelGrid columns="4">
                    <h:outputLabel value="Carteira de identidade*:" />
-                   <p:inputText value="${orientadorController.entidade.rg}" required="false"/>   
+                   <p:inputText value="${orientadorController.entidade.rg}" 
+                                validator="#{usuarioController.validaRG}" required="false"/>   
                     
                    <h:outputLabel value="Órgão Expeditor*:" />
                    <p:inputText value="${orientadorController.entidade.orgaoExpeditor}" required="false"/>                      
@@ -254,7 +257,7 @@
                    
                    <h:outputLabel value="CPF*:" />
                    <p:inputMask value="${orientadorController.entidade.cpf}" label="CPF" 
-                                required="false" mask="999.999.999-99"/>
+                               validator="#{usuarioController.validaCPF}" required="false" mask="999.999.999-99"/>
                    
                 </h:panelGrid> 
                 

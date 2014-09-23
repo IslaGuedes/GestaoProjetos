@@ -36,14 +36,14 @@ public class Usuario implements Entidade, Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    //Dados Aluno/Orientador    
-  
+    //Dados Aluno/Orientador  
     private String nome;
     
+    @Column(unique=true)
     private String rg;
     
-    @Column(length=14, unique=true) 
-    private String cpf;   //CPF LOGIN
+    @Column(length=11, unique=true)
+    private String cpf;   
     
     private String senha;
     
@@ -70,8 +70,10 @@ public class Usuario implements Entidade, Serializable{
     @ManyToMany(cascade= CascadeType.ALL) 
     private List<Endereco> endereco;  
     
+    
     @ManyToMany(cascade= CascadeType.ALL) 
     private List<Telefone> telefone;
+    
     
     @ManyToMany(cascade= CascadeType.ALL) 
     private List<Email> email;

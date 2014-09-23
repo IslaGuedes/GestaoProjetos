@@ -4,12 +4,17 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Presentation;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.Campus;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Curso;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.CursoRepositorio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -80,6 +85,19 @@ public class CursoController
         this.dao = dao;
     }
     
+    public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
+       
+        Curso tmp = dao.Abrir(value.toString());
+        
+        if (tmp != null){
+            FacesMessage msg
+                    = new FacesMessage("Curso já cadastrado!");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+            
+        }
+        
+    }   
     
 
 }

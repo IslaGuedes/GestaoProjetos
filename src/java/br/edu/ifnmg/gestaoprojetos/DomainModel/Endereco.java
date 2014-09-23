@@ -22,21 +22,16 @@ public class Endereco implements Entidade, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;   
     
-    @Column(nullable=false)
     private String bairro;
     
-    @Column(nullable=false)
     private String rua;  
     
-    @Column(nullable=false)
     private int numero;
     
-    @Column(nullable=false)
     private String cidade;
     
-    @Column(length=9)
-    private String cep;  
-    
+    @Column(length=8)
+    private String cep;     
     
     private String complemento;
 

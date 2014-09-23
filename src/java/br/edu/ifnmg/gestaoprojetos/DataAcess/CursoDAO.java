@@ -55,7 +55,18 @@ public class CursoDAO
         return consulta.getResultList();
     }
     
-     
+     public Curso Abrir(String nome) {
+        String sql = "select c from Curso c where c.nome = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", nome);
+        try {
+            return (Curso)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }   
      
     
 }

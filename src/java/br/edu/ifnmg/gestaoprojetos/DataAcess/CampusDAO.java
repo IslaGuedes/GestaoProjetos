@@ -50,6 +50,19 @@ public class CampusDAO
         
         return consulta.getResultList();
     }
+   
+    public Campus Abrir(String nome) {
+        String sql = "select c from Campus c where c.nome = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", nome);
+        try {
+            return (Campus)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }  
     
     
     

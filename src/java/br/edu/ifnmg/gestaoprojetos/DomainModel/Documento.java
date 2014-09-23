@@ -85,17 +85,33 @@ public class Documento implements Serializable, Entidade {
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Documento)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        Documento other = (Documento) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Documento other = (Documento) obj;
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
+            return false;
+        }
+        if (this.funcionarioRecebedor != other.funcionarioRecebedor && (this.funcionarioRecebedor == null || !this.funcionarioRecebedor.equals(other.funcionarioRecebedor))) {
+            return false;
+        }
+        if (this.tipoDocumento != other.tipoDocumento && (this.tipoDocumento == null || !this.tipoDocumento.equals(other.tipoDocumento))) {
+            return false;
+        }
+        if (this.dataPrevista != other.dataPrevista && (this.dataPrevista == null || !this.dataPrevista.equals(other.dataPrevista))) {
+            return false;
+        }
+        if (this.dataEfetiva != other.dataEfetiva && (this.dataEfetiva == null || !this.dataEfetiva.equals(other.dataEfetiva))) {
             return false;
         }
         return true;
     }
+
+    
 
     @Override
     public String toString() {

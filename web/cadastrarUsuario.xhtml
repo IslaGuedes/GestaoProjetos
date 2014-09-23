@@ -22,24 +22,11 @@
                        <p:panelGrid columns="1" style="width: 40%"  >  
                  
                          <h:outputLabel value="Nome*:"   /> 
-                         <p:inputText value="" required="true" size="50" />  
+                         <p:inputText value="#{usuarioController.entidade.nome}" required="true" size="50" />  
+ 
+                       <h:outputLabel value="Senha*:" />
+                       <p:password label="senha" size="26" value="${usuarioController.entidade.senha}" required="true" />
 
-                         <h:outputLabel value="Email*:" /> 
-                         <p:inputText value="" required="true" size="50"/> 
-                         
-                         <h:outputLabel value="Telefone*:" /> 
-                         <p:inputMask value="" mask="(99) 9999-9999" size="50" /> 
-                         
-                         <h:outputLabel value="Cpf*:" /> 
-                         <p:inputMask value="" required="true" mask="999.999.999-99" size="50"/> 
-                         
-                         <h:outputLabel value="Senha*:" />
-                         <p:password required="true" id="senha1" value="" size="50" match="senha2" feedback="true"
-                           weakLabel="Facil" goodLabel="Médio" strongLabel="Difícil"/> 
-                         
-                         <h:outputLabel value="Confirmar a Senha*:" />
-                         <p:password id="senha2" label="Senha2" value="" 
-                                      required="true" size="50"/><br/>
                             
                          (*)Campos de preenchimento obrigatórios.
           
@@ -47,7 +34,7 @@
                     
                     <p:panel id="Rodape">
                         
-                        <p:commandButton value="Cadastrar" icon="ui-icon-pencil"/> 
+                        <p:commandButton value="Cadastrar" action="#{usuarioController.salvar}" icon="ui-icon-pencil"/> 
                         <p:commandButton value="Voltar" immediate="true" action="${usuarioController.cancelar()}"/>
                         
                     </p:panel>

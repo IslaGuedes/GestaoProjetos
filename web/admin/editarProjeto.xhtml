@@ -202,7 +202,7 @@
                 
             </p:tab>
                
-           <p:tab rendered="#{projetoController.entidade.id > 0}" title="Plano de Trabalho">
+           <p:tab rendered="#{projetoController.entidade.id > 0}" title="Plano Trabalho">
                <br/>
                <h:panelGrid columns="2">                   
                    <h:outputLabel value="Local de realização do Projeto(Laboratório, sala, etc):" />
@@ -262,7 +262,7 @@
                         
                         <br/>
                         
-                        <p:dataTable id="tblAtividades" value="${projetoController.entidade.cronogramaAtividade}" 
+                       <p:dataTable id="tblAtividades" value="${projetoController.entidade.cronogramaAtividade}" 
                                      var="item" emptyMessage="Registros não Encontrados!" 
                                      style="font: medium; color: blue">
                             

@@ -15,6 +15,6 @@ public interface CursoRepositorio
     
     extends Repositorio<Curso>
     {
-    
+    public Curso Abrir(String nome);
 }
 

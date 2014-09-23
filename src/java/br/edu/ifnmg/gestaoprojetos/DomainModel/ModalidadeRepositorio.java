@@ -16,5 +16,5 @@ public interface ModalidadeRepositorio
   extends Repositorio<Modalidade>
 
     {
-    
+  public Modalidade Abrir(String sigla);  
 }

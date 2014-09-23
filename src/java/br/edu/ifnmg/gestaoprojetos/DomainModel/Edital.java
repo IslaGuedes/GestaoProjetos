@@ -41,6 +41,7 @@ public class Edital implements Entidade, Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataFinal;
     
+    @Column(unique=true) //sigla pode repetir?
     private String sigla;
     
     //GETTER E SETTER

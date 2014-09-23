@@ -15,6 +15,6 @@ public interface TipoDocumentoRepositorio
     
     extends Repositorio<TipoDocumento>
 
-    {
-    
-}
+ {
+  public TipoDocumento Abrir(String nome); 
+ }

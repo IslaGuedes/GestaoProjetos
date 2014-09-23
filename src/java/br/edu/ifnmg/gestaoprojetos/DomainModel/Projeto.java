@@ -33,10 +33,10 @@ public class Projeto implements Entidade, Serializable {
     private Long id;
     
     //identificação do projeto
-    
+    @Column(unique=true)
     private String titulo; 
     
-    @Column(unique=true) //vai ser unique??
+    @Column(unique=true) 
     private int numeroCadastro; 
     
     //informaÃ§Ãµes adicionais
@@ -47,14 +47,14 @@ public class Projeto implements Entidade, Serializable {
         
     private String nomegrupoPesquisa;
     
-    @ManyToOne  //VERIFICAR
+    @ManyToOne  
     private Campus campus;
     
     @ManyToOne
     private Edital edital;
     
     
-    @ManyToOne  //VERIFICAR
+    @ManyToOne  
     private Modalidade modalidade;
     
     @ManyToOne     

@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.gestaoprojetos.DataAcess;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.AgenciaFinanciadora;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Modalidade;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.ModalidadeRepositorio;
 import java.util.List;
@@ -53,6 +54,20 @@ public class ModalidadeDAO
         Query consulta = manager.createQuery(sql);
         
         return consulta.getResultList();
+    }
+    
+    
+   public Modalidade Abrir(String sigla) {
+        String sql = "select m from Modalidade m where m.sigla = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", sigla);
+        try {
+            return (Modalidade)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
     }
     
 }

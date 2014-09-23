@@ -25,7 +25,8 @@
                 <h:panelGrid columns="2">
                     
                     <h:outputLabel value="Nome*:" />
-                    <p:inputText size="35" value="${areaConhecimentoController.entidade.nome}" required="true" style="width: 150%"/>                      
+                    <p:inputText size="35" value="${areaConhecimentoController.entidade.nome}"
+                                 validator="#{areaConhecimentoController.validaNome}" required="true" style="width: 150%"/>                      
                         
                       
                 </h:panelGrid>

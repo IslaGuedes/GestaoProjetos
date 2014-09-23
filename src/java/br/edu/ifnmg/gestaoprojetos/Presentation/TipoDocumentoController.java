@@ -4,12 +4,17 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Presentation;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.AreaConhecimento;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.TipoDocumento;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.TipoDocumentoRepositorio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -80,7 +85,19 @@ public class TipoDocumentoController
         this.dao = dao;
     }
     
-    
+    public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
+       
+        TipoDocumento tmp = dao.Abrir(value.toString());
+        
+        if (tmp != null){
+            FacesMessage msg
+                    = new FacesMessage("Tipo de Documento já cadastrado!");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+            
+        }
+        
+    }
 
     
 }

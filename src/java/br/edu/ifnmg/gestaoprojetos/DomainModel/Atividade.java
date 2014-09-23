@@ -26,7 +26,6 @@ public class Atividade implements Entidade, Serializable {
     private Long id;  
     
     @Lob
-    @Column(nullable=false)
     private String descricao;
     
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -35,7 +34,7 @@ public class Atividade implements Entidade, Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataFim;
     
-    @Column(nullable=false)
+    @Column(unique=true)
     private int ordem;
 
     

@@ -26,7 +26,7 @@
                 <h:panelGrid columns="2">
                     
                     <h:outputLabel value="Nome*:" />
-                    <p:inputText value="${campusController.entidade.nome}" required="true" style="width: 150%"/>                      
+                    <p:inputText value="${campusController.entidade.nome}" validator="#{campusController.validaNome}" required="true" style="width: 150%"/>                      
                       
                    
                 </h:panelGrid>
@@ -54,7 +54,7 @@
                             <p:inputText value="${campusController.entidade.endereco.cidade}" required="true"/>  
 
                             <h:outputLabel value="Cep*:" />
-                            <p:inputText value="${campusController.entidade.endereco.cep}" required="true"/> 
+                            <p:inputMask value="${campusController.entidade.endereco.cep}" mask="99.999-999" required="true"/> 
 
                             
                         </h:panelGrid>

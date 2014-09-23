@@ -15,6 +15,6 @@ public interface AreaConhecimentoRepositorio
 
     extends Repositorio<AreaConhecimento> 
 
-   {
-    
+{
+   public AreaConhecimento Abrir(String nome);
 }

@@ -28,7 +28,8 @@
                     <p:inputText size="35" value="${modalidadeController.entidade.nome}" required="true" style="width: 150%"/>                      
                      
                     <h:outputLabel value="Sigla*:" />           
-                    <p:inputText size="35" value="${modalidadeController.entidade.sigla}" required="true"/>
+                    <p:inputText size="35" value="${modalidadeController.entidade.sigla}"
+                                 validator="#{modalidadeController.validaSigla}" required="true"/>
                         
                       
                 </h:panelGrid>

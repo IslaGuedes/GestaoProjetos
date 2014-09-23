@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.gestaoprojetos.DataAcess;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.AgenciaFinanciadora;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Aluno;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.AlunoRepositorio;
 import java.util.List;
@@ -65,6 +66,21 @@ public class AlunoDAO
         
         return consulta.getResultList();
     }
+     
+   
+   public Aluno Abrir(int matricula) {
+        String sql = "select a from Aluno a where a.matricula = :s";
+        
+       Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", matricula);
+        try {
+            return (Aluno)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }
+    
   
     
 }

@@ -55,5 +55,18 @@ public class AgenciaFinanciadoraDAO
         return consulta.getResultList();
     }
     
+    public AgenciaFinanciadora Abrir(String sigla) {
+        String sql = "select a from AgenciaFinanciadora a where a.sigla = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", sigla);
+        try {
+            return (AgenciaFinanciadora)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }
+    
 }
 

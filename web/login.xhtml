@@ -22,17 +22,17 @@
                 <p:panelGrid columns="1" style="width: 41%" >  
                  
                     <h:outputLabel value="Usuário*:" />
-                    <p:inputText value="" required="true" size="50"/>  
+                    <p:inputText value="#{usuarioController.nome}" required="true" size="50"/>  
 
                     <h:outputLabel value="Senha*:" /> 
-                    <p:password label="senha" size="26" value="" required="true" /> 
+                    <p:password label="senha" size="26" value="#{usuarioController.senha}" required="true" /> 
 
                 </p:panelGrid>
                 
                 
                 <p:panel id="Rodape" style="width: 40%" >
                 
-                    <p:commandButton value="Entrar" /> <br/> 
+                    <p:commandButton value="Entrar" ajax="false" action="#{usuarioController.validar()}" /> <br/> 
                     <p:commandLink  value="Cadastrar Usuário"  immediate="true" action="${usuarioController.novo()}"/>                
                     <p:commandLink value="Esqueci a Senha" immediate="true" action="${usuarioController.novaSenha()}"/> 
                             

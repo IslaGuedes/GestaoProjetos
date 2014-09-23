@@ -22,12 +22,10 @@ public class Telefone implements Entidade, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(length=2) // ver lenght maximo p/ DDD
+    @Column(length=2) 
     private int ddd;
     
-    
-    private int numero;    //ver lenght maximo P/NUMERO 
-    
+    private int numero;       
       
 
     public Long getId() {
@@ -37,7 +35,6 @@ public class Telefone implements Entidade, Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
 
     public int getDdd() {
         return ddd;
@@ -46,6 +43,7 @@ public class Telefone implements Entidade, Serializable {
     public void setDdd(int ddd) {
         this.ddd = ddd;
     }
+       
 
     public int getNumero() {
         return numero;
@@ -80,6 +78,8 @@ public class Telefone implements Entidade, Serializable {
         }
         return true;
     }
+
+   
     
     
 

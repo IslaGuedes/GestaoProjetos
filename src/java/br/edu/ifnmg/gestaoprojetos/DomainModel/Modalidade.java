@@ -22,8 +22,10 @@ public class Modalidade implements Serializable, Entidade {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;    
     
+    @Column(unique=true)
     private String nome;
     
+    @Column(unique=true)
     private String sigla;
 
     public Long getId() {

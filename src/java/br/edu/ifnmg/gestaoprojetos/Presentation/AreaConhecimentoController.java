@@ -4,12 +4,17 @@
  */
 package br.edu.ifnmg.gestaoprojetos.Presentation;
 
+import br.edu.ifnmg.gestaoprojetos.DomainModel.AgenciaFinanciadora;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.AreaConhecimento;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.AreaConhecimentoRepositorio;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 /**
  *
@@ -31,13 +36,23 @@ public class AreaConhecimentoController
     @EJB
     AreaConhecimentoRepositorio dao;
     
+    public void exibirMensagem(String msg) {
+       FacesContext context = FacesContext.getCurrentInstance();
+       context.addMessage(null, new FacesMessage(msg));
+    }
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-          listagem = null;  
-        } else {
-            //mensagem de erro
-        }
+            
+         if (entidade.getNome().trim().length() == 0) {
+           exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
+           return;
+         }
+            
+          listagem = null; 
+          exibirMensagem("Operação realizada com Sucesso!");
+        } 
     }
 
     @Override
@@ -61,10 +76,9 @@ public class AreaConhecimentoController
     public String excluir() {
         if(dao.Apagar(entidade)){
             listagem = null;  
-            return "listagemAreaConhecimento.xhtml";
-        } else {
-            return "";
-        }
+            exibirMensagem("Apagado com sucesso!");
+        } 
+     return "listagemAreaConhecimento.xhtml";
     }
 
     @Override
@@ -80,7 +94,21 @@ public class AreaConhecimentoController
         this.dao = dao;
     }
     
+     public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
+     
+        
+       
+        AreaConhecimento tmp = dao.Abrir(value.toString());
+        
+         if (tmp != null){
+            FacesMessage msg
+                    = new FacesMessage("Área de Conhecimento já cadastrada!");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            throw new ValidatorException(msg);
+            
+          }
+        
+     }   
     
-
 }
 

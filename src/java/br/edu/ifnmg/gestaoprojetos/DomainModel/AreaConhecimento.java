@@ -19,9 +19,10 @@ import javax.persistence.Id;
 public class AreaConhecimento implements Entidade, Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)    
+    private Long id; 
     
-    private Long id;       
+    @Column(unique=true)
     private String nome;
 
     
@@ -63,9 +64,6 @@ public class AreaConhecimento implements Entidade, Serializable {
         }
         return true;
     }
-
-
-   
 
     @Override
     public String toString() {
