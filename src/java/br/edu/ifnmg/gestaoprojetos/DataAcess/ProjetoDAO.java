@@ -30,7 +30,7 @@ public class ProjetoDAO
         
         String filtros = "";
         
-        if(obj != null){
+      if(obj != null){
             if(obj.getId() != null){
                 filtros += "p.id = " + obj.getId();
             }
@@ -39,17 +39,42 @@ public class ProjetoDAO
                 if(filtros.length() > 0)
                     filtros += " and ";
                 filtros += "p.numeroCadastro = " + obj.getNumeroCadastro() ; 
-            }
+        }
             
             
          if(obj.getTitulo() != null){
                 if(filtros.length() > 0)
                     filtros += " and ";
                 filtros += "p.titulo like '%" + obj.getTitulo() + "%'"; 
-            }
-            
+         }
          
-          }
+        if(obj.getDataInicio() != null){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "p.dataInicio = " + obj.getDataInicio() ; 
+        }
+         
+        if(obj.getDataTermino() != null){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "p.dataTermino = " + obj.getDataTermino() ; 
+        }
+          
+         
+       if(obj.getAgenciaFinanciadora() != null){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "p.agenciaFinanciadora like '%" + obj.getAgenciaFinanciadora() + "%'"; 
+         }
+       
+       if(obj.getModalidade() != null){
+                if(filtros.length() > 0)
+                    filtros += " and ";
+                filtros += "p.modalidade like '%" + obj.getModalidade() + "%'"; 
+         }
+         
+         
+     }
         
         if(filtros.length() > 0){
             sql += " where " + filtros;

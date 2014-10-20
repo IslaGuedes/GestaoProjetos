@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListagemDeProjetos" language="groovy" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21b7a1e8-84e6-49d5-8f76-a8dd3b48ab18">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="numeroCadastro" class="java.lang.Integer"/>
+	<field name="campus" class="java.lang.Object"/>
+	<field name="coordenador" class="java.lang.Object"/>
+	<field name="dataInicio" class="java.util.Date"/>
+	<field name="dataTermino" class="java.util.Date"/>
+	<field name="agenciaFinanciadora" class="java.lang.String"/>
+	<field name="modalidade" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="185" splitType="Stretch">
+			<image>
+				<reportElement x="293" y="0" width="492" height="110" uuid="17aea99c-c0aa-4afb-a280-4c51454c40df"/>
+				<imageExpression><![CDATA["C:\\Users\\HOME\\Desktop\\GestaoProjetos\\web\\resources\\img\\ifnmg.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="248" y="124" width="471" height="51" forecolor="#000000" backcolor="#FFFFFF" uuid="af5653cf-6ea0-4a24-9f07-3393f484d7e1"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="40" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Listagem de Projetos ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="2" width="145" height="31" uuid="aa766900-9bac-433a-a9b8-692fb0b7cc43"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título / Agência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="2" width="142" height="31" uuid="682f2392-0234-4b34-99db-c77bc8e60206"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° / Modalidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="2" width="100" height="29" uuid="5db09510-bd0e-4a19-9c1b-cdda2ee4b57f"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="540" y="2" width="124" height="29" uuid="ef85c829-3686-49bf-a378-5a26b42b4655"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Orientador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="796" y="0" width="86" height="31" uuid="3fda41db-aabc-4df6-8250-52522a97aaa7"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Término]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="682" y="2" width="90" height="27" uuid="6aafc1ef-c77b-4b8c-a1e0-f3c1ed48fb94"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Início]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="27" y="0" width="145" height="20" uuid="bb4d44f8-9d78-4b3e-af0d-4ed8006a40a3"/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="100" height="20" uuid="e0e66b48-0eb7-44c1-b4ec-069586ea31ac"/>
+				<textFieldExpression><![CDATA[$F{numeroCadastro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="550" y="0" width="100" height="20" uuid="4274174d-eae3-4329-b224-a3734aa0bd61"/>
+				<textFieldExpression><![CDATA[""+$F{coordenador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="811" y="0" width="100" height="20" uuid="5d261428-d8fe-401d-befb-2683305d0200"/>
+				<textFieldExpression><![CDATA[$F{dataTermino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="20" uuid="bae7d661-5d65-4b04-9ad3-63d4325cebf8"/>
+				<textFieldExpression><![CDATA[""+$F{campus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="696" y="0" width="100" height="20" uuid="ab5aafcd-2d27-4214-b535-4e066e038836"/>
+				<textFieldExpression><![CDATA[$F{dataInicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="27" y="24" width="145" height="20" uuid="393c2b89-5f92-44c8-b41e-1e33dfb6ad91"/>
+				<textFieldExpression><![CDATA[$F{agenciaFinanciadora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="24" width="100" height="20" uuid="e5446a1a-8eeb-45cd-b425-03d56556e6b0"/>
+				<textFieldExpression><![CDATA[$F{modalidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -64,7 +64,7 @@ public class UsuarioController
 
                // AppendLog("Login");
 
-                return "admin/index.xhtml";
+                return "index.xhtml";
             } else {
                 Mensagem("Login ou senha não correspondem");
                 return "login.xhtml";

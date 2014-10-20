@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateAdmin.xhtml">
+
+            <ui:define name="content">
+                <center>
+                 <p:panelGrid columns="2" style="color: blue">
+                    
+                   <f:facet name="header">  
+                    <h2 style="font: medium; color: blue"> Relatório - Listagem de Projetos </h2>   
+                   </f:facet>  
+
+                   <h:outputLabel value="Data Início:" />
+                   <p:calendar pattern="dd/MM/yyyy" value="${listagemprojetosController.filtro.dataInicio}" required="false"/>  
+                   
+                   <h:outputLabel value="Data Término:" />
+                   <p:calendar pattern="dd/MM/yyyy" value="${listagemprojetosController.filtro.dataTermino}" required="false"/>  
+                   
+                   <h:outputLabel value="Agência Financiadora:" />
+                   <p:selectOneMenu value="${listagemprojetosController.filtro.agenciaFinanciadora}" label="agenciaFinanciadora" 
+                                     converter="${agenciaFinanciadoraConverter}" required="false" >
+                       <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+                       <f:selectItems value="${agenciaFinanciadoraController.listagem}"/>
+                        
+                   </p:selectOneMenu>
+                
+                   <h:outputLabel value="Modalidade:" />                   
+                   <p:selectOneMenu value="${listagemprojetosController.filtro.modalidade}" label="Modalidade" 
+                                     converter="${modalidadeConverter}" required="false" >
+                       <f:selectItem itemLabel="Selecione..." noSelectionOption="true"/>
+                       <f:selectItems value="${modalidadeController.listagem}"/>
+                        
+                   </p:selectOneMenu>
+
+                   <f:facet name="footer">  
+                     <p:commandButton ajax="false" value="Gerar Relatório" icon="ui-icon-check" 
+                                      action="${listagemprojetosController.executaRelatorioPDF}" />  
+                   </f:facet>
+                   
+                 </p:panelGrid>
+              </center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
