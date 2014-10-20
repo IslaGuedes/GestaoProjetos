@@ -45,7 +45,7 @@ public class ProjetoController
     @EJB
     ProjetoRepositorio dao;
     
-     @Override
+    @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
             listagem = null; 
