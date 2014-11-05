@@ -118,29 +118,6 @@ public class Projeto implements Entidade, Serializable {
     
     
    
-     //Financiamento/Iniciacao cientifica
-     private boolean projetoFinanciamento;
-     
-     private BigInteger valorFinanciamento;
-     
-     @Temporal(javax.persistence.TemporalType.DATE)
-     private Date dataFinanciamento;
-     
-     private boolean bolsaIniciacaoCientifica;
-     
-     private int numeroBolsas;
-     
-    
-     //ConvÃªnio/GestÃ£o
-     private boolean projetoConvenio;
-     
-     private String nomeConvenio;
-     
-     private boolean projetoFundacao;
-     
-     private String nomeProjetoFundacao;
-     
-     private boolean projetoMulticampi;
      
      //IdentificaÃ§Ã£o dos Participantes dos Projetos
      @ManyToMany(cascade= CascadeType.MERGE)
@@ -323,46 +300,6 @@ public class Projeto implements Entidade, Serializable {
         this.setorCoordenador = setorCoordenador;
     }
 
-    public boolean isProjetoFinanciamento() {
-        return projetoFinanciamento;
-    }
-
-    public void setProjetoFinanciamento(boolean projetoFinanciamento) {
-        this.projetoFinanciamento = projetoFinanciamento;
-    }
-
-    public BigInteger getValorFinanciamento() {
-        return valorFinanciamento;
-    }
-
-    public void setValorFinanciamento(BigInteger valorFinanciamento) {
-        this.valorFinanciamento = valorFinanciamento;
-    }
-
-    public Date getDataFinanciamento() {
-        return dataFinanciamento;
-    }
-
-    public void setDataFinanciamento(Date dataFinanciamento) {
-        this.dataFinanciamento = dataFinanciamento;
-    }
-
-    public boolean isBolsaIniciacaoCientifica() {
-        return bolsaIniciacaoCientifica;
-    }
-
-    public void setBolsaIniciacaoCientifica(boolean bolsaIniciacaoCientifica) {
-        this.bolsaIniciacaoCientifica = bolsaIniciacaoCientifica;
-    }
-
-    public int getNumeroBolsas() {
-        return numeroBolsas;
-    }
-
-    public void setNumeroBolsas(int numeroBolsas) {
-        this.numeroBolsas = numeroBolsas;
-    }
-
     public AgenciaFinanciadora getAgenciaFinanciadora() {
         return agenciaFinanciadora;
     }
@@ -371,45 +308,6 @@ public class Projeto implements Entidade, Serializable {
         this.agenciaFinanciadora = agenciaFinanciadora;
     }
 
-    public boolean isProjetoConvenio() {
-        return projetoConvenio;
-    }
-
-    public void setProjetoConvenio(boolean projetoConvenio) {
-        this.projetoConvenio = projetoConvenio;
-    }
-
-    public String getNomeConvenio() {
-        return nomeConvenio;
-    }
-
-    public void setNomeConvenio(String nomeConvenio) {
-        this.nomeConvenio = nomeConvenio;
-    }
-
-    public boolean isProjetoFundacao() {
-        return projetoFundacao;
-    }
-
-    public void setProjetoFundacao(boolean projetoFundacao) {
-        this.projetoFundacao = projetoFundacao;
-    }
-
-    public String getNomeProjetoFundacao() {
-        return nomeProjetoFundacao;
-    }
-
-    public void setNomeProjetoFundacao(String nomeProjetoFundacao) {
-        this.nomeProjetoFundacao = nomeProjetoFundacao;
-    }
-
-    public boolean isProjetoMulticampi() {
-        return projetoMulticampi;
-    }
-
-    public void setProjetoMulticampi(boolean projetoMulticampi) {
-        this.projetoMulticampi = projetoMulticampi;
-    }
 
     public List<Aluno> getOrientandos() {
         return orientandos;

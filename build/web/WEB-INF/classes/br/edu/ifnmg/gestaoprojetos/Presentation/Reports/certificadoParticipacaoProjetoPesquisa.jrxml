@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="certificadoParticipacaoProjetoPesquisa" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91995dfc-0bd1-472c-a69b-6aa9336cc05d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="13"/>
+	<field name="coordenador" class="java.lang.Object"/>
+	<field name="dataInicio" class="java.util.Date"/>
+	<field name="dataTermino" class="java.util.Date"/>
+	<field name="orientandos" class="java.lang.Object"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="modalidade" class="java.lang.Object"/>
+	<field name="agenciaFinanciadora" class="java.lang.Object"/>
+	<field name="modalidade.nome" class="java.lang.Object"/>
+	<variable name="texto" class="java.lang.String">
+		<variableExpression><![CDATA["Certificamos, para os devidos fins, que o professor " + $F{coordenador}.toString() + " orientou, no período de " + (new SimpleDateFormat("dd' de 'MMMMM' de 'yyyy",new Locale("pt","BR"))).format($F{dataInicio}) + " à " +(new SimpleDateFormat("dd' de 'MMMMM' de 'yyyy",new Locale("pt","BR"))).format($F{dataTermino}) + " o(a) estudante " + $F{orientandos} + " em atividades de iniciação científica vinculadas ao projeto de pesquisa intitulado " + $F{titulo} + " no âmbito do " + $F{modalidade.nome}.toString() + " - " + $F{modalidade}.toString() + " - IFNMG/ " + $F{agenciaFinanciadora}.toString() + "."]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="542" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center" vAlign="Middle" isLazy="true">
+				<reportElement x="0" y="0" width="802" height="523" uuid="8b927819-8bb7-4263-8f8b-ec00072392fd"/>
+				<imageExpression><![CDATA["C:\\Users\\HOME\\Desktop\\GestaoProjetos\\web\\resources\\img\\Certificado.png"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" evaluationTime="Report">
+				<reportElement x="172" y="133" width="471" height="203" uuid="9431e0d3-4888-4512-931c-1be985cc9826"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="15"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{texto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="511" y="336" width="132" height="23" uuid="09e6f430-b3b2-4862-bcca-967a6e947834"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="487" width="386" height="20" uuid="8a659e45-35d0-48e7-9a67-33b7da6c78f7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Fone: (38) 3629-4600 - E-Mail: comunicacao.januaria@ifnmg.edu.br]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="-95" width="85" height="23" uuid="857cbada-8a34-493d-957f-f0c08e6769aa"/>
+				<textElement>
+					<font fontName="Arial" size="18"/>
+				</textElement>
+				<text><![CDATA[Januária, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="467" width="337" height="20" uuid="bd7747b4-759d-4445-ae59-31f5f9813093"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[Fazenda São Geraldo, S/N Km 06 - 39480-000 - Januária / MG       ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="351" y="359" width="181" height="75" uuid="d887db09-abd2-4199-adaa-f8e634f996f1"/>
+				<imageExpression><![CDATA["C:\\Users\\HOME\\Desktop\\GestaoProjetos\\web\\resources\\img\\assinatura.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+</jasperReport>

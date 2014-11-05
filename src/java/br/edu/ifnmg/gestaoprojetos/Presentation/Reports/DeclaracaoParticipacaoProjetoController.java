@@ -16,27 +16,24 @@ import javax.ejb.EJB;
  *
  * @author HOME
  */
-@Named(value = "listagemprojetosController")
+@Named(value = "declaracaoParticipacaoProjetoController")
 @SessionScoped
-public class ListagemProjetosController 
-    extends RelatorioGenericoController<Projeto> implements Serializable {
-    
-    Projeto filtro;
-    
+public class DeclaracaoParticipacaoProjetoController
+   extends RelatorioGenericoController<Projeto> implements Serializable {
+
+    Projeto filtro;    
     @EJB
     ProjetoRepositorio dao; 
     
-    
-   
-    public ListagemProjetosController() {
-     setCaminhoRelatorio("ListagemDeProjetos.jasper");
-     setNomeRelatorio("ListagemDeProjetos");
+    public DeclaracaoParticipacaoProjetoController() {
+     setCaminhoRelatorio("certificadoParticipacaoProjetoPesquisa.jasper");
+     setNomeRelatorio("certificadoParticipacaoProjetoPesquisa");
      filtro = new Projeto();
     }
     
-   public List<Projeto> getDados(){
+    public List<Projeto> getDados(){
        return dao.Buscar(filtro);   
-   }
+    }
 
     public Projeto getFiltro() {
         return filtro;
@@ -46,5 +43,7 @@ public class ListagemProjetosController
         this.filtro = filtro;
     }
 
-    
+   
+     
+     
 }

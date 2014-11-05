@@ -14,6 +14,8 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -45,13 +47,18 @@ public class ProjetoController
     @EJB
     ProjetoRepositorio dao;
     
+    public void exibirMensagem(String msg) {
+       FacesContext context = FacesContext.getCurrentInstance();
+       context.addMessage(null, new FacesMessage(msg));
+    }
+    
     @Override
     public void salvar() {
+        
         if(dao.Salvar(entidade)){
             listagem = null; 
-        } else {
-            //mensagem de erro
-        }
+            exibirMensagem("Operação realizada com Sucesso!");
+        } 
     }
 
     @Override

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateAdmin.xhtml">
+
+            <ui:define name="content">
+                <center>
+                  <p:panelGrid columns="2" style="color: blue">
+                        <f:facet name="header">  
+                            <h2 style="font: medium; color: blue"> Relatório - Certificado de Participação em Projeto</h2>   
+                        </f:facet>  
+                        
+                    <h:outputLabel value="Título*:" />
+                    <p:inputText value="${declaracaoParticipacaoProjetoController.filtro.titulo}" required="true" style="width: 100%"/>                                  
+                     
+                    <h:outputLabel value="Data Início:" />
+                    <p:calendar pattern="dd/MM/yyyy" value="${declaracaoParticipacaoProjetoController.filtro.dataInicio}" required="false"/>  
+                   
+                   <h:outputLabel value="Data Término:" />
+                   <p:calendar pattern="dd/MM/yyyy" value="${declaracaoParticipacaoProjetoController.filtro.dataTermino}" required="false"/>  
+                   
+                   
+                   
+                   <f:facet name="footer">  
+                     <p:commandButton ajax="false" value="Gerar Relatório" icon="ui-icon-check" 
+                                      action="${declaracaoParticipacaoProjetoController.executaRelatorioPDF}" />  
+                   </f:facet>
+                
+                 </p:panelGrid>
+                </center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

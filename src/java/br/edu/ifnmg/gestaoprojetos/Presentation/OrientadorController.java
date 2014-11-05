@@ -58,6 +58,8 @@ public class OrientadorController
         GregorianCalendar datahoje = new GregorianCalendar();
         
         if(dao.Salvar(entidade)){
+            /*
+            *
            if (entidade.getNome().trim().length() == 0) {
                 exibirMensagem("preencha o campo Nome Completo com caracteres diferentes de espaço!");
               return;
@@ -94,7 +96,7 @@ public class OrientadorController
                 exibirMensagem("preencha o campo Estado com caracteres diferentes de espaço!");
               return;
             }
-            
+           */ 
         listagem = null;
         exibirMensagem("Operação realizada com Sucesso!");
   

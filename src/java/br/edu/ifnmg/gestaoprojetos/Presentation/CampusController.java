@@ -45,7 +45,9 @@ public class CampusController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            
+            /*
+             * 
+             
           if (entidade.getNome().trim().length() == 0) {
               exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
               return;
@@ -76,7 +78,7 @@ public class CampusController
               return;
           }
           
-          
+          */
             listagem = null;
             exibirMensagem("Operação realizada com Sucesso!");
             

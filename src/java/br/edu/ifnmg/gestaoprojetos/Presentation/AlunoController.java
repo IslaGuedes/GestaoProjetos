@@ -57,46 +57,12 @@ public class AlunoController
      
     @Override
     public void salvar() {
-       GregorianCalendar datahoje = new GregorianCalendar();
-       
+        
         if(dao.Salvar(entidade)){           
-            
-            if (entidade.getNome().trim().length() == 0) {
-                exibirMensagem("preencha o campo Nome Completo com caracteres diferentes de espaço!");
-              return;
-            }
-            
-            if (entidade.getMatricula() == 0) {
-                exibirMensagem("preencha o campo Matrícula com caracteres diferentes de espaço!");
-              return;
-            }
-            
-            if (entidade.getDataNascimento() != null) {
-             if (entidade.getDataNascimento().after(datahoje.getTime())) {
-                exibirMensagem("Data de Nascimento não pode ser maior que a Data de hoje!");
-                 return;
-             }
-            }
-            
-            if (entidade.getNaturalidadeUF().trim().length() == 0) {
-                exibirMensagem("preencha o campo Naturalidade-UF com caracteres diferentes de espaço!");
-              return;
-            }
-            
-             if (entidade.getNacionalidade().trim().length() == 0) {
-                exibirMensagem("preencha o campo Nacionaliade com caracteres diferentes de espaço!");
-              return;
-            }
-             
-            if (entidade.getEstado().trim().length() == 0) {
-                exibirMensagem("preencha o campo Estado com caracteres diferentes de espaço!");
-              return;
-            }
-            
-        listagem = null;
-        exibirMensagem("Operação realizada com Sucesso!");
+           
+            listagem = null;
+            exibirMensagem("Operação realizada com Sucesso!");
   
-            
         }
     }
 

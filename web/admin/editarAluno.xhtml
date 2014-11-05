@@ -325,7 +325,8 @@
                     <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
                     <p:commandButton rendered="#{alunoController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
                     <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${alunoController.cancelar()}" />
-                </p:panel>       
+                </p:panel>     
+                
                 <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"
                                  severity="alert" widgetVar="msgSalvar">
                     <p:commandButton ajax="false" value="SIM" action="${alunoController.salvar}" />

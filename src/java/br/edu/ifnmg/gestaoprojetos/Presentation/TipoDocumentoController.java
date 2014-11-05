@@ -36,13 +36,17 @@ public class TipoDocumentoController
     @EJB
     TipoDocumentoRepositorio dao;
     
+    public void exibirMensagem(String msg) {
+       FacesContext context = FacesContext.getCurrentInstance();
+       context.addMessage(null, new FacesMessage(msg));
+    }
+    
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
           listagem = null;  
-        } else {
-            //mensagem de erro
-        }
+          exibirMensagem("Operação realizada com Sucesso!");
+        } 
     }
 
     @Override

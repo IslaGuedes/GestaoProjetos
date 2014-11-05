@@ -45,11 +45,7 @@ public class AreaConhecimentoController
     public void salvar() {
         if(dao.Salvar(entidade)){
             
-         if (entidade.getNome().trim().length() == 0) {
-           exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
-           return;
-         }
-            
+         
           listagem = null; 
           exibirMensagem("Operação realizada com Sucesso!");
         } 
