@@ -48,23 +48,7 @@ public class AgenciaFinanciadoraController
     public void salvar() {
         
       if(dao.Salvar(entidade)){      
-                /*
-        if (entidade.getNome().trim().length() == 0) {
-            exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
-            return;
-        }
-        
-        
-        if (entidade.getSigla().trim().length() == 0) {
-            exibirMensagem("preencha o campo Sigla com caracteres diferentes de espaço!");
-            return;
-        }
-        
-        if(entidade.getSigla() == dao.Buscar(nul) {
-            
-        }
-        */
-        
+                       
         listagem = null;
         exibirMensagem("Operação realizada com Sucesso!");
 
@@ -114,7 +98,8 @@ public class AgenciaFinanciadoraController
     
     public void validaSigla(FacesContext context, UIComponent component, Object value) throws ValidatorException{
        
-      
+      if (entidade.getId() == null || entidade.getId() == 0L) {
+
           
         AgenciaFinanciadora tmp = dao.Abrir(value.toString());
         
@@ -126,6 +111,6 @@ public class AgenciaFinanciadoraController
             
         }
         
-     
+      }
     }
 }

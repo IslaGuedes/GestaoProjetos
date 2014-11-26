@@ -10,6 +10,9 @@ import br.edu.ifnmg.gestaoprojetos.DomainModel.AlunoRepositorio;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Email;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Endereco;
 import br.edu.ifnmg.gestaoprojetos.DomainModel.Telefone;
+import br.edu.ifnmg.gestaoprojetos.DomainModel.Usuario;
+import br.edu.ifnmg.gestaoprojetos.DomainModel.UsuarioRepositorio;
+import br.edu.ifnmg.gestaoprojetos.DomainModel.ValidadorCPF;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -49,6 +52,7 @@ public class AlunoController
     
     @EJB
     AlunoRepositorio dao;
+    UsuarioRepositorio daoUsuario;
     
     public void exibirMensagem(String msg) {
        FacesContext context = FacesContext.getCurrentInstance();
@@ -108,6 +112,15 @@ public class AlunoController
     public void setDao(AlunoRepositorio dao) {
         this.dao = dao;
     }
+
+    public UsuarioRepositorio getDaoUsuario() {
+        return daoUsuario;
+    }
+
+    public void setDaoUsuario(UsuarioRepositorio daoUsuario) {
+        this.daoUsuario = daoUsuario;
+    }
+    
 
     public Email getEmail() {
         return email;
@@ -176,21 +189,52 @@ public class AlunoController
    }
    
    
-   public void validaMatricula(FacesContext context, UIComponent component, Object value) throws ValidatorException{
-       
-       if (entidade.getId() == null || entidade.getId() == 0L ){
-       
-        Aluno tmp = dao.Abrir(Integer.parseInt(value.toString()));
-        
-        if (tmp != null){
-            FacesMessage msg
-                    = new FacesMessage("Matrícula já cadastrada!");
-            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-            throw new ValidatorException(msg);
-            
+   
+   
+    public void validaRG(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+
+        if (entidade.getId() == null || entidade.getId() == 0L) {
+
+            Usuario tmp = daoUsuario.AbrirRG(value.toString());
+
+            if (tmp != null) {
+                FacesMessage msg = new FacesMessage("RG já cadastrado!");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+
+            }
         }
-       }
     }
+    
+  
+    
+     public void validaCPF(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+
+        if (entidade.getId() == null || entidade.getId() == 0L) {
+
+            if (value == null || value.toString() == "") {
+                FacesMessage msg = new FacesMessage("CPF vazio!");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+            }
+
+            Usuario tmp = daoUsuario.AbrirPorCPF(value.toString());
+
+            if (tmp != null && !tmp.equals(entidade)) {
+                FacesMessage msg = new FacesMessage("CPF já cadastrado!");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+            }
+
+            if (!ValidadorCPF.validaCPF(value.toString())) {
+                FacesMessage msg = new FacesMessage("CPF Inválido!");
+                msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+                throw new ValidatorException(msg);
+            }
+        }
+    }
+    
+     
     
 
 }

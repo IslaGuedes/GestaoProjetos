@@ -28,7 +28,7 @@
 
                             <h:outputLabel value="Matrícula*:" />
                             <p:inputText value="${alunoController.entidade.matricula}"
-                                         validator="#{alunoController.validaMatricula}" required="true"/>  
+                                          required="true"/>  
 
                             <h:outputLabel value="Curso*:" />           
                             <p:selectOneMenu value="${alunoController.entidade.curso}" label="Curso"
@@ -171,7 +171,7 @@
                         <h:panelGrid columns="2">                            
                             <h:outputLabel value="E-mail*:" />
                             <p:inputText id="txtEndereco" value="${alunoController.email.endereco}" 
-                                         validator="#{usuarioController.validaEmail}"  required="false" style="width: 150%"/>   
+                                          required="false" style="width: 150%"/>   
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${alunoController.addEmail()}" update="tblEmail txtEndereco"/>
@@ -208,7 +208,7 @@
                             
                             <h:outputLabel value="Carteira de identidade*:" />
                             <p:inputText value="${alunoController.entidade.rg}" 
-                                         validator="#{usuarioController.validaRG}" required="false"/>   
+                                         validator="#{alunoController.validaRG}" required="false"/>   
 
                             <h:outputLabel value="Órgão Expeditor*:" />
                             <p:inputText value="${alunoController.entidade.orgaoExpeditor}" required="false"/>                      
@@ -228,7 +228,7 @@
 
                             <h:outputLabel value="CPF*:" />
                             <p:inputMask value="${alunoController.entidade.cpf}" label="CPF" 
-                                         required="false" mask="999.999.999-99"/>
+                                         validator="#{alunoController.validaCPF}" required="false" mask="999.999.999-99"/>
 
                             <h:outputLabel value="Situação Militar*:" />
                             <p:inputText value="${alunoController.entidade.situacaoMilitar}" required="false"/> 
@@ -293,29 +293,6 @@
                     </p:tab>
                      
 
-                    <p:tab rendered="#{alunoController.entidade.id > 0}" title="Outras informações">
-                        <br/>
-                        <h:panelGrid columns="2">
-                            <h:outputLabel value="Trabalha?*:" />  
-                            <p:selectOneRadio value="${alunoController.entidade.trabalhoStatus}" required="false" label="trabalho">
-                                <f:selectItem itemLabel="Sim" itemValue="S"/>
-                                <f:selectItem itemLabel="Não" itemValue="N"/>
-                            </p:selectOneRadio>
-
-                            <h:outputLabel value="Local do Trabalho*:" />           
-                            <p:inputText value="${alunoController.entidade.localTrabalho}" required="false"/>
-
-                            <h:outputLabel value="Telefone*:" />           
-                            <p:selectOneMenu value="${alunoController.entidade.telefone}" label="Telefone" required="false" >
-                                <f:selectItem itemLabel="Selecione..." itemValue=""/>
-
-                            </p:selectOneMenu>
-
-                        </h:panelGrid>                
-
-                    </p:tab>  
-
-                    
 
                 </p:tabView>                     
 
@@ -324,7 +301,9 @@
                 <p:panel id="Rodape">
                     <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
                     <p:commandButton rendered="#{alunoController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
+                    <p:commandButton ajax="false" value="Novo Bolsista" immediate="true" action="${alunoController.novo}" />
                     <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${alunoController.cancelar()}" />
+                    
                 </p:panel>     
                 
                 <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"

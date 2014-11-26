@@ -91,6 +91,8 @@ public class TipoDocumentoController
     
     public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
        
+      if (entidade.getId() == null || entidade.getId() == 0L) {
+
         TipoDocumento tmp = dao.Abrir(value.toString());
         
         if (tmp != null){
@@ -100,7 +102,7 @@ public class TipoDocumentoController
             throw new ValidatorException(msg);
             
         }
-        
+      }   
     }
 
     

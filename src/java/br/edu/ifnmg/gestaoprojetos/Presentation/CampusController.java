@@ -45,40 +45,6 @@ public class CampusController
     @Override
     public void salvar() {
         if(dao.Salvar(entidade)){
-            /*
-             * 
-             
-          if (entidade.getNome().trim().length() == 0) {
-              exibirMensagem("preencha o campo Nome com caracteres diferentes de espaço!");
-              return;
-          }
-          
-          if (entidade.getEndereco().getRua().trim().length() == 0) {
-              exibirMensagem("preencha o campo Rua com caracteres diferentes de espaço!");
-              return;
-          }
-          
-          if (entidade.getEndereco().getNumero() == 0) {
-              exibirMensagem("preencha o campo Número com caracteres diferentes de espaço!");
-              return;
-          }
-          
-          if (entidade.getEndereco().getBairro().trim().length() == 0) {
-              exibirMensagem("preencha o campo Bairro com caracteres diferentes de espaço!");
-              return;
-          }
-          
-          if (entidade.getEndereco().getCep().trim().length() == 0) {
-              exibirMensagem("preencha o campo Cep com caracteres diferentes de espaço!");
-              return;
-          }
-          
-          if ((entidade.getEndereco().getCep().length()<8) || (entidade.getEndereco().getCep().length()>8)){
-              exibirMensagem("O campo Cep ser preenchido com 8 caracteres!");
-              return;
-          }
-          
-          */
             listagem = null;
             exibirMensagem("Operação realizada com Sucesso!");
             
@@ -127,6 +93,8 @@ public class CampusController
     
    public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
        
+      if (entidade.getId() == null || entidade.getId() == 0L) {
+
         Campus tmp = dao.Abrir(value.toString());
         
         if (tmp != null){
@@ -137,8 +105,8 @@ public class CampusController
             
         }
         
-    }  
+     }  
     
-
+   }
 }
 

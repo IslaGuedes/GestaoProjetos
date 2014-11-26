@@ -40,8 +40,7 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     
     private String certidaoMilitar;
     
-    private boolean trabalhoStatus;
-    
+       
     //Dados dos pais    
     private String nomePai;
         
@@ -58,7 +57,7 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     
     private String orgaoExpedidorMae;
     
-    @Column(length=14)
+    
     private String cpfMae;
    
     //Dados da Conta
@@ -76,8 +75,6 @@ public class Aluno extends Usuario implements Entidade, Serializable{
     private Curso curso;  
     
    
-    private String localTrabalho;  
-    
    
 
     public Aluno() {
@@ -135,14 +132,6 @@ public class Aluno extends Usuario implements Entidade, Serializable{
 
     public void setCertidaoMilitar(String certidaoMilitar) {
         this.certidaoMilitar = certidaoMilitar;
-    }
-
-    public boolean isTrabalhoStatus() {
-        return trabalhoStatus;
-    }
-
-    public void setTrabalhoStatus(boolean trabalhoStatus) {
-        this.trabalhoStatus = trabalhoStatus;
     }
 
     public String getNomePai() {
@@ -240,15 +229,6 @@ public class Aluno extends Usuario implements Entidade, Serializable{
         this.curso = curso;
     }
 
-    public String getLocalTrabalho() {
-        return localTrabalho;
-    }
-
-    public void setLocalTrabalho(String localTrabalho) {
-        this.localTrabalho = localTrabalho;
-    }
-
-   
-
+    
     
 }

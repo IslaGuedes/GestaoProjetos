@@ -56,49 +56,8 @@ public class UsuarioDAO
         return consulta.getResultList();
     }
      
+    
      
-     public Usuario Abrir(String rg) {
-        String sql = "select u from Usuario u where u.rg = :s";
-        
-        Query consulta = manager.createQuery(sql);
-        
-        consulta.setParameter("s", rg);
-        try {
-            return (Usuario)consulta.getSingleResult();
-        } catch(Exception ex){
-            return null;
-        }
-     }
-     
-      public Usuario AbrirEmail(String email) {
-        String sql = "select u from Usuario u join u.email e where e.endereco = :s";
-        
-        Query consulta = manager.createQuery(sql);
-        
-        consulta.setParameter("s", email);
-        try {
-            return (Usuario)consulta.getSingleResult();
-        } catch(Exception ex){
-            return null;
-        }
-     }
-      
-      
-     
-     public Usuario AbrirPorCPF(String cpf) {
-       
-        String sql = "select u from Usuario u where u.cpf = :s";
-        
-        Query consulta = manager.createQuery(sql);
-        
-        consulta.setParameter("s", cpf);
-        
-        try {
-            return (Usuario)consulta.getSingleResult();
-        } catch(Exception ex){
-            return null;
-        }
-    }
      
   public Usuario porLogin(String nome){
       
@@ -117,6 +76,38 @@ public class UsuarioDAO
        }
 
     }
+  
+  public Usuario AbrirRG(String rg) {
+        String sql = "select u from Usuario u where u.rg = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", rg);
+        try {
+            return (Usuario)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+     }
+    
+     
+      
+      
+      public Usuario AbrirPorCPF(String cpf) {
+       
+        String sql = "select u from Usuario u where u.cpf = :s";
+        
+        Query consulta = manager.createQuery(sql);
+        
+        consulta.setParameter("s", cpf);
+        
+        try {
+            return (Usuario)consulta.getSingleResult();
+        } catch(Exception ex){
+            return null;
+        }
+    }
+    
     
 }
 

@@ -6,29 +6,25 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <h:head>
+     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="./../resources/css/default.css" rel="stylesheet" type="text/css" />
-        <link href="./../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
-        <title>Sistema de Gestão de Projetos</title>
+        <link href="../resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="../resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>Sistema de Gestão de Projetos de Pesquisa e Extensão</title>
     </h:head>
+
 
     <h:body>
 
-        <div id="top">
-            
-           <img src="resources/img/ifnmg2.png"/>
-             <div id="textop" align="center">
-                <h2 style="font: medium; color: #ffffff">Sistema de Gestão de Projetos de Pesquisa e Extensão </h2>
-             </div>
-
-        </div>
-
-              
-       <h:form> 
-         <p:growl id="growl" showDetail="true" sticky="true" />
-         
-         <p:menubar style="font: message-box; color: blue">
+         <div id="top"> 
+            <img  src="../resources/img/cabecalho.png" style="width: 100%; height: 250px"/>
+ 
+          </div>     
+        
+       <h:form  >            
+        <p:growl id="growl" showDetail="true" sticky="true" />
+ 
+         <p:menubar style="font: message-box; color: blue; width:  300%; height: 300%">
 
              <p:submenu label="Cadastros" icon="ui-icon-pencil" > 
 
@@ -51,14 +47,9 @@
                  <p:menuitem value="Declaração de participação de Projeto de Pesquisa" url="RelatorioDeclaracaoParticipacaoProjeto.xhtml" ajax="false"  />
             </p:submenu>
 
-             <p:submenu label="Segurança" icon="ui-icon-pencil"  >
-
-               <p:menuitem value="Meus Dados" />                    
-               <p:menuitem value="Logs"  /> 
-
-            </p:submenu>
+           
              
-             <p:menuitem value="Sair" icon="ui-icon-pencil" action="#{usuarioController.logout}" />
+             <p:menuitem value="Sair" icon="ui-icon-pencil" action="#{autenticacaoController.logout()}" />
 
        </p:menubar>
      
@@ -74,14 +65,13 @@
          
     </h:form>
      
-     <div id="bottom">
-         
+     <div id="bottom" style="float:bottom">        
            <center>
-               
+             
               Desenvolvido por Isla Guedes, Analista de Sistema <br/>
               &copy; 2014 Gestão Projetos - Januária/MG - Todos os direitos reservados <br/>
               E-Mail: islaguedestads@gmail.com             
-              
+             
            </center>      
          
      </div>

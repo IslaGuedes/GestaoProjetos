@@ -92,16 +92,18 @@ public class CursoController
     
     public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
        
+       if (entidade.getId() == null || entidade.getId() == 0L) {
+ 
         Curso tmp = dao.Abrir(value.toString());
         
-        if (tmp != null){
+         if (tmp != null){
             FacesMessage msg
                     = new FacesMessage("Curso já cadastrado!");
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
             
-        }
-        
+         }
+       }  
     }   
     
 

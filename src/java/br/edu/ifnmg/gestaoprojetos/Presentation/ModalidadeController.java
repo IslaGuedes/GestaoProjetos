@@ -91,6 +91,8 @@ public class ModalidadeController
     
      public void validaSigla(FacesContext context, UIComponent component, Object value) throws ValidatorException{
        
+      if (entidade.getId() == null || entidade.getId() == 0L) {
+   
         Modalidade tmp = dao.Abrir(value.toString());
         
         if (tmp != null){
@@ -100,6 +102,6 @@ public class ModalidadeController
             throw new ValidatorException(msg);
             
         }
-        
+      } 
     }
 }

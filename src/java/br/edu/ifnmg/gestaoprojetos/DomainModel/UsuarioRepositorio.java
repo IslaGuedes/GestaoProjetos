@@ -16,10 +16,10 @@ public interface UsuarioRepositorio
     extends Repositorio<Usuario>
     
     {
-    public Usuario AbrirPorCPF(String cpf);
-    public Usuario Abrir(String rg);
-    public Usuario AbrirEmail(String email);
+    
     public Usuario porLogin(String nome);
+    public Usuario AbrirPorCPF(String cpf);
+    public Usuario AbrirRG(String rg);
     
 }
 

@@ -19,14 +19,6 @@
                         
                     <h:outputLabel value="Título*:" />
                     <p:inputText value="${declaracaoParticipacaoProjetoController.filtro.titulo}" required="true" style="width: 100%"/>                                  
-                     
-                    <h:outputLabel value="Data Início:" />
-                    <p:calendar pattern="dd/MM/yyyy" value="${declaracaoParticipacaoProjetoController.filtro.dataInicio}" required="false"/>  
-                   
-                   <h:outputLabel value="Data Término:" />
-                   <p:calendar pattern="dd/MM/yyyy" value="${declaracaoParticipacaoProjetoController.filtro.dataTermino}" required="false"/>  
-                   
-                   
                    
                    <f:facet name="footer">  
                      <p:commandButton ajax="false" value="Gerar Relatório" icon="ui-icon-check" 

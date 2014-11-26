@@ -93,7 +93,9 @@ public class AreaConhecimentoController
      public void validaNome(FacesContext context, UIComponent component, Object value) throws ValidatorException{
      
         
-       
+      if (entidade.getId() == null || entidade.getId() == 0L) {
+          
+             
         AreaConhecimento tmp = dao.Abrir(value.toString());
         
          if (tmp != null){
@@ -104,7 +106,7 @@ public class AreaConhecimentoController
             
           }
         
-     }   
-    
+      }   
+     }
 }
 

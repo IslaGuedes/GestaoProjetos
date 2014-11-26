@@ -64,6 +64,7 @@
         <p:panel id="Rodape">
             <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
             <p:commandButton rendered="#{editalController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
+            <p:commandButton ajax="false" value="Novo Edital" immediate="true" action="${editalController.novo()}"  />
             <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${editalController.cancelar()}" />
         </p:panel>       
         <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"

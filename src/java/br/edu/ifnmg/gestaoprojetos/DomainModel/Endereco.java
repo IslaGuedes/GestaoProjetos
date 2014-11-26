@@ -30,8 +30,8 @@ public class Endereco implements Entidade, Serializable {
     
     private String cidade;
     
-    @Column(length=8)
-    private String cep;     
+    @Column(length=10)
+    private String cep;    
     
     private String complemento;
 

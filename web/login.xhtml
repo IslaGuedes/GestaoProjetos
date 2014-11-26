@@ -14,32 +14,28 @@
              <h:form>
               <div align="center">
                
-                 <p:panel header="Login" style="width: 40%; font: medium; color: blue"/>
+               <p:panel header="Autenticação de Usuário" style="width: 40%; height: 70%; font: medium; color: blue">
                  <p:messages autoUpdate="true"/>
             
                 <p:growl id="growl" showDetail="true" sticky="true" />   
 
-                <p:panelGrid columns="1" style="width: 41%" >  
+                <p:panelGrid columns="2" style="width: 50%" >  
                  
                     <h:outputLabel value="Usuário*:" />
-                    <p:inputText value="#{usuarioController.nome}" required="true" size="50"/>  
+                    <p:inputText value="#{autenticacaoController.nome}" required="true" size="50"/>  
 
                     <h:outputLabel value="Senha*:" /> 
-                    <p:password label="senha" size="26" value="#{usuarioController.senha}" required="true" /> 
+                    <p:password label="senha" size="26" value="#{autenticacaoController.senha}" required="true" /> 
 
-                </p:panelGrid>
+                </p:panelGrid>             
+               </p:panel>  
+               
                 
-                
-                <p:panel id="Rodape" style="width: 40%" >
-                
-                    <p:commandButton value="Entrar" ajax="false" action="#{usuarioController.validar()}" /> <br/> 
-                    <p:commandLink  value="Cadastrar Usuário"  immediate="true" action="${usuarioController.novo()}"/>                
-                    <p:commandLink value="Esqueci a Senha" immediate="true" action="${usuarioController.novaSenha()}"/> 
+                  <p:commandButton value="Entrar" ajax="false" action="#{autenticacaoController.validar}" /> <br/> <br/>
+                   
+                   <p:commandLink  value="Cadastrar Usuário"  immediate="true" action="${usuarioController.novo}"/>                
                             
                     
-                </p:panel>  
-                
-                  
             </div>
                  
           </h:form>

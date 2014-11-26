@@ -42,7 +42,7 @@ public class Usuario implements Entidade, Serializable{
     @Column(unique=true)
     private String rg;
     
-    @Column(length=11, unique=true)
+    @Column(length=14, unique=true)
     private String cpf;   
     
     private String senha;

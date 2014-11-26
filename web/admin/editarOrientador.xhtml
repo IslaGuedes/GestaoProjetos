@@ -68,8 +68,7 @@
                   <h:panelGrid columns="2">
                             <h:outputLabel value="Area de Conhecimento*:" />           
                             <p:selectOneMenu id="txtAreaConhecimento" value="${orientadorController.areaConhecimento}" label="Area de Conhecimento"
-                                             converter="${areaConhecimentoConverter}" required="false"
-                                            >
+                                             converter="${areaConhecimentoConverter}" required="false">                                            >
                                 <f:selectItem itemLabel="Selecione..." noSelectionOption="false"/>
                                 <f:selectItems value="${areaConhecimentoController.listagem}"/>
 
@@ -208,7 +207,7 @@
                         <h:panelGrid columns="2">
                             <h:outputLabel value="E-mail*:" />
                             <p:inputText id="txtEndereco" value="${orientadorController.email.endereco}"
-                                         validator="#{usuarioController.validaEmail}" required="false" style="width: 150%"/>   
+                                         required="false" style="width: 150%"/>   
 
                             <p:commandButton value="Adicionar" icon="ui-icon-check" 
                                              action="${orientadorController.addEmail()}" style="margin:0"
@@ -245,7 +244,7 @@
                 <h:panelGrid columns="4">
                    <h:outputLabel value="Carteira de identidade*:" />
                    <p:inputText value="${orientadorController.entidade.rg}" 
-                                validator="#{usuarioController.validaRG}" required="false"/>   
+                               required="false"/>   
                     
                    <h:outputLabel value="Órgão Expeditor*:" />
                    <p:inputText value="${orientadorController.entidade.orgaoExpeditor}" required="false"/>                      
@@ -257,7 +256,7 @@
                    
                    <h:outputLabel value="CPF*:" />
                    <p:inputMask value="${orientadorController.entidade.cpf}" label="CPF" 
-                               validator="#{usuarioController.validaCPF}" required="false" mask="999.999.999-99"/>
+                                required="false" mask="999.999.999-99"/>
                    
                 </h:panelGrid> 
                 
@@ -285,6 +284,7 @@
         <p:panel id="Rodape">
             <p:commandButton value="Salvar" onclick="msgSalvar.show()" />
             <p:commandButton rendered="#{orientadorController.entidade.id > 0}" value="Remover" onclick="msgRemover.show()"/>
+            <p:commandButton ajax="false" value="Novo Orientador" immediate="true" action="${orientadorController.novo}" />
             <p:commandButton value="Cancelar" ajax="false" immediate="true" action="${orientadorController.cancelar()}" />
         </p:panel>       
         <p:confirmDialog id="confirmaSalvar" message="Deseja realmente Salvar os Dados?" header="Confirmação"

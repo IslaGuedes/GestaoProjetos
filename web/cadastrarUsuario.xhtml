@@ -8,7 +8,7 @@
 
    <body>
 
-        <ui:composition template="./TemplateExterno.xhtml">
+       <ui:composition template="./TemplateExterno.xhtml">
 
             <ui:define name="content">
                <div align="center">
@@ -21,7 +21,7 @@
                     
                        <p:panelGrid columns="1" style="width: 40%"  >  
                  
-                         <h:outputLabel value="Nome*:"   /> 
+                         <h:outputLabel value="Login*:"   /> 
                          <p:inputText value="#{usuarioController.entidade.nome}" required="true" size="50" />  
  
                        <h:outputLabel value="Senha*:" />
@@ -41,7 +41,7 @@
                  </h:form>
                    
               </div>
-
+      
             </ui:define>
 
         </ui:composition>

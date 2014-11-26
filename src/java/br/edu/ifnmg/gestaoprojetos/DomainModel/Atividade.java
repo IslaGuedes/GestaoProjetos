@@ -81,12 +81,13 @@ public class Atividade implements Entidade, Serializable {
         this.ordem = ordem;
     }
 
-   
-    
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 7;
+        hash = 67 * hash + (this.descricao != null ? this.descricao.hashCode() : 0);
+        hash = 67 * hash + (this.dataInicio != null ? this.dataInicio.hashCode() : 0);
+        hash = 67 * hash + (this.dataFim != null ? this.dataFim.hashCode() : 0);
+        hash = 67 * hash + this.ordem;
         return hash;
     }
 
@@ -99,9 +100,6 @@ public class Atividade implements Entidade, Serializable {
             return false;
         }
         final Atividade other = (Atividade) obj;
-        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
-            return false;
-        }
         if ((this.descricao == null) ? (other.descricao != null) : !this.descricao.equals(other.descricao)) {
             return false;
         }
@@ -118,6 +116,8 @@ public class Atividade implements Entidade, Serializable {
     }
 
    
+    
+  
 
     @Override
     public String toString() {
