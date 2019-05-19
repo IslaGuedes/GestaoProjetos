@@ -1,6 +1,6 @@
 #### Trabalho de Conclusão do Curso - TADS
 Autora:  IslaGuedes
-### RECONHECIMENTO DE PLACAS AUTOMOTIVAS
+### Trabalho de Conclusão do Curso - TADS
 # 
 
-Palavras-chaves: Latex, código-fonte, reconhecimento, software, placas, automotivas, tcc, trabalho, conclusão de curso.
+Palavras-chaves: Latex, código-fonte, software, TADS, tcc, trabalho, conclusão de curso.
