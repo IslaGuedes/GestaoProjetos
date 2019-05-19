@@ -3,4 +3,4 @@ Autora:  IslaGuedes
 ### RECONHECIMENTO DE PLACAS AUTOMOTIVAS
 # 
 
-Palavras-chaves: Latex, código-fonte, reconhecimento, software, placas, automotivas, tcc, trabalho, análise, conclusão de curso.
+Palavras-chaves: Latex, código-fonte, reconhecimento, software, placas, automotivas, tcc, trabalho, conclusão de curso.
